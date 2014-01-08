@@ -1,3 +1,3 @@
-Welcome to The Indie'D
+Welcome to Indie'D
 
 By Jonathan Piatos

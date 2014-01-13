@@ -4,11 +4,11 @@
  */
 
 var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
+var server = require('./server');
+var user = require('./server/user');
 var http = require('http');
 var path = require('path');
-var stylus = require('public/stylus');
+var stylus = require('stylus');
 
 var app = express();
 
@@ -29,7 +29,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.get('/', server.index);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){

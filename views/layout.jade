@@ -1,7 +1,29 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        meta(name ='viewport', content='width=device-width, initial-scale=1.0')
+        link(href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", rel="stylesheet")
+
+    body
+        div(id='header')
+            ul(class='left-top-corner')
+                li: a(href='/home') Indie'D
+            ul(class='right-top-corner')
+                li: a(href='/profile') Profile
+                li: a(href='/settings') Settings
+                li: a(href='/logout') Logout
+
+        div(id='main-content')
+            block pagetitle
+            div(id='page-content')
+            block content
+
+        div(id='footer') 
+            ul(class='bottom-left-corner') 
+                li: a(href='/about') About
+                li: a(href='/contact') Contact
+                li: a(href='/FAQ') FAQ
+
+   

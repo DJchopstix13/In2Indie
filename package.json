@@ -9,6 +9,6 @@
     "express": "3.4.7",
     "jade": "*",
     "stylus": "*",
-    "mysql": "*"
+    "connect-mongo": "*"
   }
 }

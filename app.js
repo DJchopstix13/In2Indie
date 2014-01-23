@@ -29,6 +29,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+require('./controllers/main')(app);
+
 app.get('/', server.index);
 app.get('/users', user.list);
 

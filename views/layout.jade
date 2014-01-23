@@ -3,7 +3,7 @@ html
     head
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
-        meta(name ='viewport', content='width=device-width, initial-scale=1.0')
+        link(href='/stylesheets/style.css', rel='stylesheet')
         link(href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", rel="stylesheet")
 
     body
@@ -18,7 +18,7 @@ html
         div(id='main-content')
             block pagetitle
             div(id='page-content')
-            block content
+                block content
 
         div(id='footer') 
             ul(class='bottom-left-corner') 

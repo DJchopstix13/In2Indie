@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div(class='row', id = 'user-profile')
+    
+    div(class='span3 offset4', id='profile-information')
+      h1(id='user-name', align="right")
+      table(class='table table-condensed')
+        tr
+          td(class='right-label'): strong Name
+          td(id='user-name')
+        tr
+          td(class='right-label'): strong Email
+          td(id='user-email')
+        tr
+          td(class='right-label'): strong Login
+          td(id='user-login')
+        tr
+          td(class='right-label'): strong Password
+          td(id='user-password')
+        tr
+          td(class='right-label'): strong Social Network
+          td(id='user-socialHandle')

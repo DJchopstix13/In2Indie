@@ -8,7 +8,7 @@ module.exports = function (app) {
     }
   });*/
   
-  app.get('/home', function(req, res) {
+  app.get('/', function(req, res) {
     res.render('index', {title: 'In2Indie Home'});
   });
 
@@ -17,11 +17,11 @@ module.exports = function (app) {
   });
 
   app.get('/play', function(req, res) {
-    res.render('play-home', {title: 'Play'});
+    res.render('play', {title: 'Play'});
   });
   
   app.get('/browse', function(req, res) {
-    res.render('browse-home', {title: 'Browse'});
+    res.render('browse', {title: 'Browse'});
   });
 
   app.get('/profile', function(req, res) {
@@ -36,10 +36,6 @@ module.exports = function (app) {
     res.render('logout', {title: 'Logout'});
   });
   
-  app.get('/contact', function(req, res) {
-    res.render('contact', {title: 'Contact'});
-  });
-
   app.get('/about', function(req, res) {
     res.render('about', {title: 'About Chuzr'});
   });

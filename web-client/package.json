@@ -1,5 +1,5 @@
 {
-  "name": "Indie-D",
+  "name": "In2Indie",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,6 +9,6 @@
     "express": "3.4.7",
     "jade": "*",
     "stylus": "*",
-    "connect-mongo": "*"
+    "pg": "*"
   }
 }

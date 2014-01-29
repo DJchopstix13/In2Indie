@@ -1,6 +1,6 @@
 
 /**
- * Module dependencies.
+ * In2Indie app.js
  */
 
 var express = require('express');

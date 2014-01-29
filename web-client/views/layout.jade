@@ -4,13 +4,12 @@ html
         title= title
         meta(name ='viewport', content='width=device-width, initial-scale=1.0')
         link(href="//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css", rel="stylesheet")
-        link(href='/stylesheets/chuzr.css', rel='stylesheet')
-        script(src='/js/chuzrModule.js')
-        script(src='/js/user.js')
+        link(href='/stylesheets/style.styl', rel='stylesheet')
+        link(rel="stylesheet" href="mediaelementplayer.css")
         script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
         script(src='//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js')
-        script(src='/js/sideNavToggle.js')
-
+        script(src="mediaelement-and-player.min.js")
+        
     body
         div(id='wrap')
             div(class='navbar navbar-default', id='nav-bar')
@@ -19,20 +18,18 @@ html
                         li: a(href='/') In2Indie
                     ul(class='nav pull-right')
                         li(class='dropdown'): a(href='#', class='dropdown-toggle', data-toggle='dropdown')
-                            img(src='/public/img/settings.png', height='25',width='25')
+                            img(src='/img/settings.png', height='25',width='25')
                             b(class='caret')
                             ul(class='dropdown-menu')
                                 li: a(href='/profile') Profile
                                 li: a(href='/settings') Settings
                                 li: a(href='/logout') Logout
 
-      div(class='row-fluid', id='content')
-        div(class='span1', id='side-nav')
  
-        div(class='span10', id='main-content')
-          block pagetitle
-          div(id='page-content')
-            block content
+        div(class='span11', id='main-content')
+            block pagetitle
+            div(id='page-content')
+                 block content
 
         div(class='navbar navbar-fixed-bottom',id='footer-nav')
             div(class='navbar-inner')

@@ -16,8 +16,8 @@ module.exports = function (app) {
     res.render('signup', {title: 'Sign up'});
   });
 
-  app.get('/play', function(req, res) {
-    res.render('play', {title: 'Play'});
+  app.get('/sample-video', function(req, res) {
+    res.render('sample-video', {title: 'View Sample-Video'});
   });
   
   app.get('/browse', function(req, res) {
@@ -37,7 +37,7 @@ module.exports = function (app) {
   });
   
   app.get('/about', function(req, res) {
-    res.render('about', {title: 'About Chuzr'});
+    res.render('about', {title: 'About'});
   });
 
   app.get('/FAQ', function(req, res) {

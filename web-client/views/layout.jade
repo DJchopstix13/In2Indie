@@ -5,7 +5,7 @@ html
         meta(name ='viewport', content='width=device-width, initial-scale=1.0')
         link(href="//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css", rel="stylesheet")
         link(href='/stylesheets/style.styl', rel='stylesheet')
-        link(rel="stylesheet" href="mediaelementplayer.css")
+        link(href="mediaelementplayer.css", rel="stylesheet")
         script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
         script(src='//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js')
         script(src="mediaelement-and-player.min.js")
@@ -26,15 +26,16 @@ html
                                 li: a(href='/logout') Logout
 
  
-        div(class='span11', id='main-content')
+        div(class='span12', id='main-content')
             block pagetitle
             div(id='page-content')
                  block content
 
         div(class='navbar navbar-fixed-bottom',id='footer-nav')
             div(class='navbar-inner')
-            ul(class='nav pull-right', id='footer-links')
-                li: a(href='/about') about 
-                li: a(href='/FAQ') FAQ 
+                ul(class='nav pull-right', id='footer-links')
+                    li: a(href='/about') about 
+                    li: a(href='/FAQ') FAQ 
+                    li: a(href='/contact') Contact
 
    

@@ -1,23 +1,26 @@
 extends layout
 
 block content
-  div(class='row', id = 'user-profile')
+    div(class='row', id = 'user-profile')
     
-    div(class='span3 offset4', id='profile-information')
-      h1(id='user-name', align="right")
-      table(class='table table-condensed')
-        tr
-          td(class='right-label'): strong Name
-          td(id='user-name')
-        tr
-          td(class='right-label'): strong Email
-          td(id='user-email')
-        tr
-          td(class='right-label'): strong Login
-          td(id='user-login')
-        tr
-          td(class='right-label'): strong Password
-          td(id='user-password')
-        tr
-          td(class='right-label'): strong Social Network
-          td(id='user-socialHandle')
+        div(class='span4', id='profile-picture')
+            img(src='http://static4.wikia.nocookie.net/__cb20130331081617/marvel_dc/images/0/01/Batman-injustice.png', class='img-polaroid')
+        div(class='span3', id='profile-information')
+            h1(id='user-name', align="right")
+            table(class='table table-condensed')
+                tr
+                    td(class='right-label'): strong Name
+                    td(id='user-name')
+                tr
+                    td(class='right-label'): strong Email
+                    td(id='user-email')
+                tr
+                    td(class='right-label'): strong User Type
+                    td(id='user-user-type')
+                tr
+                    td(class='right-label'): strong Social Network
+                    td(id='user-socialHandle')
+                tr
+                    td(class='right-label'): strong Description
+                    td(id='user-description')
+        

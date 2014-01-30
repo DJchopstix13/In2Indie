@@ -35,13 +35,9 @@ block content
                 img(src='myvideo.jpg', width='320', height='240', title='No video playback capabilities')
 
         div(class='input-prepend')
-            div(class='btn-group')
-                select(id='search-menu', class='span5')
-                    option(value='name') Name
-                    option(value='brand') Brand
-                input(class='span12', id='prependDropdownButton', type='search')
-                div(button id="find-products" class="btn btn-mini" type="button")
-                    p go
+            input(name="searchbox", type='text', size=40)
+            div(button id="find-products" class="btn btn-mini" type="button")
+                p go
 
         p To view More Sample, click  
             a(href='/sample-video') here

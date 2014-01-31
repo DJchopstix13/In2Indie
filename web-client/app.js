@@ -1,6 +1,6 @@
 
 /**
- * In2Indie app.js
+ * In2Indie Web-client App
  */
 
 var express = require('express');
@@ -11,7 +11,7 @@ var stylus = require('stylus');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());

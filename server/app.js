@@ -1,14 +1,11 @@
-
-/**
- * Module dependencies.
- */
+/*
+** In2Indie Server app.
+*/
 
 var express = require('express');
-var server = require('./server');
-var user = require('./server/user');
+//var user = require('user');
 var http = require('http');
 var path = require('path');
-var stylus = require('stylus');
 
 var app = express();
 
@@ -29,10 +26,10 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-require('./controllers/main')(app);
+//require('./controllers/main')(app);
 
-app.get('/', server.index);
-app.get('/users', user.list);
+/*app.get('/', server.index);
+app.get('/users', user.list);*/
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -6,7 +6,7 @@ The Server-side for In2Indie
 To run the Server: 
 
     // I'm assuming you have Node.js on your machine.  If not
-    // (click here) [https://gist.github.com/isaacs/579814] and follow the directions
+    // [click here] (https://gist.github.com/isaacs/579814) and follow the directions
 
     npm install    //installs the node modules 
 

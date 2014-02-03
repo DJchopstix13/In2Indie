@@ -16,3 +16,5 @@ var productSchema = new schema({
     product    : Object
 
 });
+
+module.export = pg.model('Product', productSchema);

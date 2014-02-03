@@ -1,5 +1,5 @@
 /*
-** Product model for In2Indie
+** User model for In2Indie
 */
 
 var http = require('http'), 
@@ -16,6 +16,8 @@ var userSchema = new Schema({
     email           : String,
     description     : String,
     userType        : String,
-    picture         : Object
+    picture         : String
     
 });
+
+module.export = pg.model('User', userSchema);

@@ -1,7 +1,7 @@
 extends layout
 
 block css
-    link(href='/public/stylesheets/index.styl', rel='stylesheet')
+    link(href='/stylesheets/index.styl', rel='stylesheet')
 
 block content
 
@@ -10,7 +10,7 @@ block content
             H1 Welcome To In2Indie
 
             div(id='video-sample')
-                video(width='800', height='400', poster='poster.jpg', controls='controls', preload='none')
+                video(class='centre' width='800', height='400', poster='poster.jpg', controls='controls', preload='none')
     
                 //MP4 for Safari, IE9, iPhone, iPad, Android, and Windows Phone 7 
                 source(type='video/mp4', src='myvideo.mp4')

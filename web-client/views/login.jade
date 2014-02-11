@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/login.styl')
+    div(class='row-fluid')
+        div(class='span12 hero-unit', id ='login')
+            h1(class="text-center") Login to In2Indie
+            hr
+            center(id='login-content')
+                h3 Sign-in
+                form(class='form-vertical')
+                input(type='text', id='inputEmail', placeholder='Email')
+                br
+                input(type='password', id='inputPassword', placeholder='Password')
+                br
+                a(href='#', type='submit', class='btn btn-primary', id='signin') Sign In
+                hr
+                p To Sign Up for In2Indie:
+                a(href='/signup' class='btn', id='signup') 
+                    p Sign Up
+                    
+ 

@@ -7,10 +7,11 @@ block content
 
     div(class='row-fluid')
         center
-            H1 Welcome To In2Indie
+            h1 Welcome To In2Indie
 
-            div(id='video-sample')
-                video(class='centre' width='800', height='400', poster='poster.jpg', controls='controls', preload='none')
+            div(class='span12', id='video-sample')
+
+                video(width='800', height='350', poster='poster.jpg', controls='controls', preload='none')
     
                 //MP4 for Safari, IE9, iPhone, iPad, Android, and Windows Phone 7 
                 source(type='video/mp4', src='myvideo.mp4')
@@ -36,11 +37,14 @@ block content
             
                    //Image as a last resort 
                     img(src='myvideo.jpg', width='320', height='240', title='No video playback capabilities')
-
+               
+            div(id=login)
+                a(href='/login', class='btn' type='button') Login/ Sign-Up for In2Indie 
+            
+            br
             div(class='input-prepend')
-                input(name="searchbox", type='text', size=200)
-                div(button id="find-products" class="btn btn-mini" type="button")
-                    p go
+                input(name='searchbox', type='text', class='input-xxlarge', placeholder='Browse for')
+                a(href='#', id='find-products' class='btn btn-primary' type='button') go
 
             p To view More Sample, click  
                 a(href='/sample-video') here

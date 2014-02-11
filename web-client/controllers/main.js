@@ -12,8 +12,12 @@ module.exports = function (app) {
         res.render('index', { title: 'In2Indie'});
     });
 
+    app.get('/login', function (req, res){
+        res.render('login', { title: 'Login to In2Indie'});
+    });
+
     app.get('/signup', function (req, res) {
-        res.render('signup', { title: 'Sign up'});
+        res.render('signup', { title: 'Sign up for In2Indie'});
     });
 
     app.get('/sample-video', function (req, res) {

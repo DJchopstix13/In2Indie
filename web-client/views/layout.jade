@@ -3,8 +3,8 @@ html
     head
         title= title
         meta(name ='viewport', content='width=device-width, initial-scale=1.0')
-        link(href='/stylesheets/style.styl', rel='stylesheet')
         link(href="//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css", rel="stylesheet")
+        link(href='/stylesheets/style.styl', rel='stylesheet')
         link(href="mediaelementplayer.css", rel="stylesheet")
         script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
         script(src='//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.js')
@@ -12,7 +12,7 @@ html
         
     body
         div(id='wrap')
-            div(class='navbar navbar-default', id='nav-bar')
+            div(class='navbar navbar-default', id='navigation-bar')
                 div(class='navbar-inner')
                     ul(class='nav')
                         li: a(href='/') In2Indie
@@ -26,10 +26,10 @@ html
                                 li: a(href='/logout') Logout
 
  
-        div(class='span12', id='main-content')
-            block pagetitle
-            div(id='page-content')
-                 block content
+            div(class='span12', id='main-content')
+                block pagetitle
+                div(id='page-content')
+                    block content
 
         div(class='navbar navbar-fixed-bottom',id='footer-nav')
             div(class='navbar-inner')

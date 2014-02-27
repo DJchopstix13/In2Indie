@@ -2,8 +2,9 @@
 ** Product model for In2Indie
 */
 
-var http = require('http'), 
-    pg = require('pg');
+var pg = require('pg'), //Node package for PostGreSQL
+    schema = pg.Schema;
+    //ObjectId = Schema.ObjectId;
 
 var productSchema = new schema({
     name        : String,

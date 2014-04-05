@@ -10,6 +10,8 @@
     "jade": "*",
     "stylus": "*",
     "pg": "*",
-    "joomla": "*"
+    "joomla": "*",
+    "forever": "*"
+    "forever-monitor": "*"
   }
 }

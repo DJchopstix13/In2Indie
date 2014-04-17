@@ -9,7 +9,7 @@ var path = require('path');
 var stylus = require('stylus');
 var joomla = require('joomla');
 
-joomla('/var/www/joomla/');
+//joomla('/var/www/joomla/');
 
 var app = express();
 

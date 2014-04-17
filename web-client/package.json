@@ -11,7 +11,7 @@
     "stylus": "*",
     "pg": "*",
     "joomla": "*",
-    "forever": "*"
+    "forever": "*",
     "forever-monitor": "*"
   }
 }

@@ -22,8 +22,8 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Server and Web-Client sub- application here
-app.use('/server', require('./server/app.js').app);
-app.use('/web-client', require('./web-client/app.js').app);
+app.use('./server/', require('./server/app.js').app);
+app.use('./web-client/', require('./web-client/app.js').app);
 
 // development only
 if ('development' == app.get('env')) {

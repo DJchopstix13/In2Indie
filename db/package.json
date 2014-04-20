@@ -9,6 +9,7 @@
     "sequelize": "*",
     "routes": "*",
     "task": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "jade": "*"
   }
 }

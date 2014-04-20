@@ -1,11 +1,15 @@
 {
-    "name": "in2Indie-server",
-    "version": "0.0.1",
-    "private": true,
-    "scripts": {
-    "start": "node app.js"
-},
-    "dependencies": {
+  "name": "in2Indie-postgres-db",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
     "express": "3.3.8",
+    "pg": "^3.0.3",
+    "sequelize": "*",
+    "routes": "*",
+    "task": "*",
+    "lodash": "*",
+    "jade": "*"
   }
 }

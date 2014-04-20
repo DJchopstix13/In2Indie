@@ -36,7 +36,7 @@ var Sequelize = require('sequelize')
         })
     
     //Define Inventory tables
-    , Inventory = sequelize.define('Inventory,'
+    , Inventory = sequelize.define('Inventory',
 
     {
         product_id          : Sequelize.STRING,

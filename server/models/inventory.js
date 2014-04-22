@@ -1,17 +1,13 @@
 /*
- * Product Model for In2Indie
+ * Inventory Model for In2Indie
  *
  */
 
+
 module.exports = function (sequelize, DataTypes) {
-    var Product = sequelize.define('Product', 
+    var Inventory = sequelize.define('Inventory', 
         {
             product_name      : DataTypes.STRING,
-            product_type      : 
-                {
-                    type: DataTypes.STRING,
-                    values: ['games', 'movies', 'music']
-                },
             product_id        : 
                 
                 {
@@ -19,8 +15,6 @@ module.exports = function (sequelize, DataTypes) {
                     primaryKey: true,
                     allowNull : false
                 },
-
-            product_price     : DataTypes.DECIMAL,
             product_available : DataTypes.BOOLEAN
         }, 
 
@@ -32,5 +26,5 @@ module.exports = function (sequelize, DataTypes) {
         }*/
     })
 
-    return Product
+    return Inventory
 }

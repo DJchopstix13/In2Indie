@@ -1,11 +1,11 @@
-var express = require('express'),
-    routes = require('./routes'),
-    user = require('./routes/user'),
-    http = require('http'),
-    path = require('path'),
-    db = require('./models')
+var express = require('express');
+var routes = require('./routes');
+var user = require('./routes/user');
+var http = require('http');
+var path = require('path');
+var db = require('./models')
 
-    var app = express()
+var app = express()
 
 // all environments
 app.set('port', process.env.PORT || 80)

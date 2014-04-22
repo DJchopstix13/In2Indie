@@ -23,8 +23,9 @@ module.exports = function (sequelize, DataTypes) {
             associate: function (models) {
                 Product.hasMany(models.Task)
             }
-        }*/
-    })
+        }
+    }*/
+    )
 
     return Inventory
 }

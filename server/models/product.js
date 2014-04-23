@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
 
             product_price     : DataTypes.DECIMAL,
             product_available : DataTypes.BOOLEAN
-        }, 
+        } 
 
     /*{
         classMethods: {

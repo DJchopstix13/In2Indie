@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
                     allowNull : false
                 },
             product_available : DataTypes.BOOLEAN
-        }, 
+        } 
 
     /*{
         classMethods: {

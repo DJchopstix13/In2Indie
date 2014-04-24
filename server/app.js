@@ -12,7 +12,7 @@ var db = require('./models')
 var app = express()
 
 // all environments
-//app.set('port', process.env.PORT || 80)
+app.set('port', process.env.PORT || 80)
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 app.use(express.favicon())
@@ -33,9 +33,9 @@ app.get('/', routes.index)
 db.sequelize.sync().complete(function (err) {
     if (err) {
         throw err
-    } /*else {
+    } else {
         http.createServer(app).listen(app.get('port'), function () {
             console.log('Express server listening on port ' + app.get('port'))
         })
-    }*/
+    }
 })

@@ -9,6 +9,7 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     db = require('./server/models'),
+    controllers = require('./controllers/index'),
     stylus = require('stylus');
 
 var app = express();
@@ -17,7 +18,7 @@ var app = express();
 app.set('port', process.env.PORT || 80);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(express.favicon(path.join(__dirname, 'public/icons/in2indie.png')));
+app.use(express.favicon(path.join(__dirname, 'web-client/public/icons/in2indie.png')));
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
@@ -30,8 +31,9 @@ if ('development' === app.get('env')) {
     app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+//app.get('/', controllers.index);
 //app.get('/users', user.list)
+require('./controllers/index')(app);
 
 db.sequelize.sync().complete(function (err) {
     if (err) {

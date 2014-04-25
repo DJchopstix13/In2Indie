@@ -8,12 +8,12 @@ module.exports = function (app) {
         }
     });*/
 
-    app.get('/', function (req, res) {
+    app.get('./web-client/', function (req, res) {
         res.render('index', { title: 'In2Indie'});
     });
 
-    app.get('/login', function (req, res){
-        res.render('login', { title: 'Login to In2Indie'});
+    app.get('/web-client/login', function (req, res){
+        res.render('/web-client/login', { title: 'Login to In2Indie'});
     });
 
     app.get('/signup', function (req, res) {

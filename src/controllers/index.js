@@ -12,47 +12,47 @@ module.exports = function (app) {
         res.render('index', { title: 'In2Indie'});
     });
 
-    app.get('/web-client/login', function (req, res){
+    app.get('./web-client/login', function (req, res){
         res.render('/web-client/login', { title: 'Login to In2Indie'});
     });
 
-    app.get('/signup', function (req, res) {
+    app.get('./web-client//signup', function (req, res) {
         res.render('signup', { title: 'Sign up for In2Indie'});
     });
 
-    app.get('/sample-video', function (req, res) {
+    app.get('./web-client//sample-video', function (req, res) {
         res.render('sample-video', { title: 'View Sample-Video'});
     });
 
-    app.get('/browse', function (req, res) {
+    app.get('./web-client//browse', function (req, res) {
         res.render('browse', { title: 'Browse'});
     });
 
-    app.get('/profile', function (req, res) {
+    app.get('./web-client//profile', function (req, res) {
         res.render('profile', { title: 'profile'});
     });
 
-    app.get('/settings', function (req, res) {
+    app.get('./web-client//settings', function (req, res) {
         res.render('settings', { title: 'Settings'});
     });
 
-    app.get('/logout', function (req, res) {
+    app.get('./web-client//logout', function (req, res) {
         res.render('logout', {title: 'Logout'});
     });
 
-    app.get('/about', function (req, res) {
+    app.get('./web-client//about', function (req, res) {
         res.render('about', { title: 'About'});
     });
 
-    app.get('/FAQ', function (req, res) {
+    app.get('./web-client//FAQ', function (req, res) {
         res.render('FAQ', { title: 'FAQ'});
     });
 
-    app.get('/privacy', function (req, res) {
+    app.get('./web-client//privacy', function (req, res) {
         res.render('privacy', { title: 'Privacy'});
     });
 
-    app.get('/contact', function (req, res) {
+    app.get('./web-client//contact', function (req, res) {
         res.render('contact', { title: 'Contact Us'});
     });
 

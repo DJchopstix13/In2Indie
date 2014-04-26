@@ -8,51 +8,51 @@ module.exports = function (app) {
         }
     });*/
 
-    app.get('./web-client/', function (req, res) {
+    app.get('/', function (req, res) {
         res.render('index', { title: 'In2Indie'});
     });
 
-    app.get('./web-client/login', function (req, res){
-        res.render('/web-client/login', { title: 'Login to In2Indie'});
+    app.get('/login', function (req, res){
+        res.render('login', { title: 'Login to In2Indie'});
     });
 
-    app.get('./web-client//signup', function (req, res) {
+    app.get('/signup', function (req, res) {
         res.render('signup', { title: 'Sign up for In2Indie'});
     });
 
-    app.get('./web-client//sample-video', function (req, res) {
+    app.get('/sample-video', function (req, res) {
         res.render('sample-video', { title: 'View Sample-Video'});
     });
 
-    app.get('./web-client//browse', function (req, res) {
+    app.get('/browse', function (req, res) {
         res.render('browse', { title: 'Browse'});
     });
 
-    app.get('./web-client//profile', function (req, res) {
+    app.get('/profile', function (req, res) {
         res.render('profile', { title: 'profile'});
     });
 
-    app.get('./web-client//settings', function (req, res) {
+    app.get('/settings', function (req, res) {
         res.render('settings', { title: 'Settings'});
     });
 
-    app.get('./web-client//logout', function (req, res) {
+    app.get('/logout', function (req, res) {
         res.render('logout', {title: 'Logout'});
     });
 
-    app.get('./web-client//about', function (req, res) {
+    app.get('/about', function (req, res) {
         res.render('about', { title: 'About'});
     });
 
-    app.get('./web-client//FAQ', function (req, res) {
+    app.get('/FAQ', function (req, res) {
         res.render('FAQ', { title: 'FAQ'});
     });
 
-    app.get('./web-client//privacy', function (req, res) {
+    app.get('/privacy', function (req, res) {
         res.render('privacy', { title: 'Privacy'});
     });
 
-    app.get('./web-client//contact', function (req, res) {
+    app.get('/contact', function (req, res) {
         res.render('contact', { title: 'Contact Us'});
     });
 

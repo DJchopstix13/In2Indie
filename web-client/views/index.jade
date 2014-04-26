@@ -3,11 +3,16 @@ extends layout
 block css
     link(href='/stylesheets/index.styl', rel='stylesheet')
 
+block pagetitle
+    div(class='page-title')
+        h3 Welcome to   
+            img(src="/img/in2indie.png", height='150', width='150')
+
 block content
 
     div(class='row-fluid')
         center
-            h1 Welcome To In2Indie
+            //h1 Welcome To In2Indie
  
             div(class='span12', id='video-sample')
             
@@ -43,10 +48,25 @@ block content
             
             br
             div(class='input-prepend')
+                div(class='btn-group')
+                    select(id='search-menu', class='span12')
+                        option(value='name') Name
+                        option(value='brand') Type
                 input(name='searchbox', type='text', class='input-xxlarge', placeholder='Browse for')
                 a(href='#', id='find-products' class='btn btn-primary' type='button') go
 
-            p To view More Sample, click  
-                a(href='/sample-video') here
-        
+            p To view More Sample, click 
+                a(href='/sample-video')  here
+            
+            br
+            br
+            div(id='results')
+            div(id='product-capsule')            
+
+          //  p To view More Sample, click  
+            //    a(href='/sample-video') here
+            
+            
+script(src='/js/browse.js')
+
 

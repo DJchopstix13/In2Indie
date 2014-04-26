@@ -24,12 +24,7 @@ If not, please refer to [NodeJS Github README](https://github.com/joyent/node) o
 ####To Install and run:
 
     npm install    //installs the node modules 
-    node app.js    //runs In2Indie's web- client
-
-####For Ubuntu 14.04 OS
-Instead of running "node app.js", run the following:
-
-    nodejs apps.js
+    node app.js    //runs In2Indie's web application - both front end and back end
 
 For more details, please refer to the [In2Indie Wiki] (https://github.com/DJchopstix13/in2indie/wiki)
 

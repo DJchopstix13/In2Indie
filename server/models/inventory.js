@@ -7,25 +7,38 @@
 module.exports = function (sequelize, DataTypes) {
     var Inventory = sequelize.define('Inventory', 
         {
-            product_name      : DataTypes.STRING,
-            product_id        : 
-                
+            product_id           : 
                 {
-                    type      : DataTypes.UUID,
-                    primaryKey: true,
-                    allowNull : false
-                },
-            product_available : DataTypes.BOOLEAN
-        } 
+                    type         : DataTypes.UUID,
+                    allowNull    : false,
+                    references   : models.product.product_id,
+                    referencesKey: "id"
 
-    /*{
-        classMethods: {
-            associate: function (models) {
-                Product.hasMany(models.Task)
+                },
+            transaction_id       : 
+                {
+                    type         : DataTypes.UUID,
+                    allowNull    : false,
+                    references   : models.transaction.transaction_id,
+                    referencesKey: "id"
+
+                },
+            product_available    : 
+                {
+                    type         : DataTypes.BOOLEAN,
+                    allowNull    : false,
+                    primaryKey:  : true
+                }
+        },
+
+        {
+            classMethods: {
+                associate: function (models) {
+                    Inventory.hasOne(models.transaction),
+                    Inventory.hasOne(models.product)
+                }
             }
-        }
-    }*/
-    )
+        })
 
     return Inventory
 }

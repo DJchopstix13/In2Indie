@@ -7,23 +7,35 @@
 module.exports = function (sequelize, DataTypes) {
     var Transaction = sequelize.define('Transaction', 
         {
-            transaction_id    : 
+            transaction_id: 
                 
                 {
-                    type      : DataTypes.UUID,
-                    primaryKey: true,
-                    allowNull : false
+                    type          : DataTypes.UUID,
+                    primaryKey    : true,
+                    allowNull     : false
                 },
-        } 
+            user_id:
+                {
+                    type          : DataTypes.UUID,
+                    references    : models.user.user_id,
+                    referencesKey : "id"
+                },
+            product_id:
+                {
+                    type          : DataTypes.UUID,
+                    references    : models.product.product_id,
+                    referencesKey : "id"
+                }
+        },
 
-    /*{
-        classMethods: {
-            associate: function (models) {
-                Product.hasMany(models.Task)
+        {
+            classMethods: {
+                associate: function (models) {
+                    Transaction.hasOne(models.user),
+                    Transaction.hasMany(models.product)
+                }
             }
-        }
-    }*/
-    )
+        })
 
     return Transaction
 }

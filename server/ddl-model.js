@@ -1,56 +1,156 @@
 /*
  * In2Indie PostgreSQL data models
- * Note for Author: need to include the following:
- *    - Foreign keys
- *    - Associations
+ * 
  */
 
 
 //Connect to user postgres
-var Sequelize = require('sequelize')
-    , sequelize = new Sequelize('postgres', 'postgres', 'postgres', 
+var Sequelize = require('sequelize'), 
+    sequelize = new Sequelize('postgres', 'postgres', 'postgres', 
         {
             dialect: "postgres",
-            port:    5432, // or 54
-        })
+            port:    5432, 
+        });
+
+//Define tables if models subdirectory do not work
+module.exports = function (sequelize, DataTypes) {
+    var User = sequelize.define('User', 
+            {
+                username : DataTypes.STRING,
+                password : DataTypes.STRING,
+                user_id  : 
+                    
+                    {
+                        type: DataTypes.UUID,
+                        primaryKey: true,
+                        allowNull: false
+                    },
+
+                user_type: 
+                    
+                    {
+                        type  : DataTypes.STRING,
+                        values: ['community', 'In2Indie Uploader', 'admin']
+                    },
+
+                name     : DataTypes.STRING,
+                email    : DataTypes.STRING
+            },
+
+            {
+                classMethods: {
+                    associate: function (models) {
+                        User.hasOne(models.transaction)
+                    }
+                }
+            }),
+        Product = sequelize.define('Product', 
+            {
+                product_name         : DataTypes.STRING,
+                product_type: 
+                    {
+                        type         : DataTypes.STRING,
+                        values       : ['games', 'movies', 'music']
+                    },
+                product_id: 
+                    
+                    {
+                        type         : DataTypes.UUID,
+                        primaryKey   : true,
+                        allowNull    : false
+                    },
+                product_price        : DataTypes.DECIMAL,
+                product_available: 
+                    {
+                        type         : DataTypes.BOOLEAN,
+                        allowNull    : false,
+                        referenes    : models.inventory.product_available,
+                        referenesKey : "id"
+                    }
+            }, 
+
+            {
+                classMethods: {
+                    associate: function (models) {
+                        Product.hasMany(models.inventory),
+                        Product.hasOne(models.transaction)
+                    }
+                }
+            }),
+        Transaction = sequelize.define('Transaction', 
+            {
+                transaction_id: 
+                    {
+                        type          : DataTypes.UUID,
+                        primaryKey    : true,
+                        allowNull     : false
+                    },
+                user_id:
+                    {
+                        type          : DataTypes.UUID,
+                        references    : models.user.user_id,
+                        referencesKey : "id"
+                    },
+                product_id:
+                    {
+                        type          : DataTypes.UUID,
+                        references    : models.product.product_id,
+                        referencesKey : "id"
+                    }
+            },
+
+            {
+                classMethods: {
+                    associate: function (models) {
+                        Transaction.hasOne(models.user),
+                        Transaction.hasMany(models.product)
+                    }
+                }
+            }),
+
+        
+        Inventory = sequelize.define('Inventory', 
+            {
+                product_id           : 
+                    {
+                        type         : DataTypes.UUID,
+                        allowNull    : false,
+                        references   : models.product.product_id,
+                        referencesKey: "id"
+
+                    },
+                transaction_id       : 
+                    {
+                        type         : DataTypes.UUID,
+                        allowNull    : false,
+                        references   : models.transaction.transaction_id,
+                        referencesKey: "id"
+
+                    },
+                product_available    : 
+                    {
+                        type         : DataTypes.BOOLEAN,
+                        allowNull    : false,
+                        primaryKey:  : true
+                    }
+            },
+
+            {
+                classMethods: {
+                    associate: function (models) {
+                        Inventory.hasOne(models.transaction),
+                        Inventory.hasOne(models.product)
+                    }
+                }
+            });
+    return user;
+    return product;
+    return transaction;
+    return inventory;
+
+}  
     
-    //Define User tables
-    , User = sequelize.define('User', 
-        {
-            username    : Sequelize.STRING,
-            password    : Sequelize.STRING,
-            user_id     : Sequelize.STRING,
-            user_type   : Sequelize.STRING,
-            name        : Sequelize.STRING,
-            email       : Sequelize.STRING
-        })
 
-    //Define Product tables
-    , Product = sequelize.define('Product',
-        {
-            product_id          : Sequelize.STRING,
-            product_name        : Sequelize.STRING,
-            product_type        : Sequelize.STRING,
-            product_price       : Sequelize.DECIMAL,
-            product_available   : Sequelize.BOOLEAN
-        })
-    
-    //Define Inventory tables
-    , Inventory = sequelize.define('Inventory',
-
-    {
-        product_id          : Sequelize.STRING,
-        product_name        : Sequelize.STRING,
-        product_available   : Sequelize.BOOLEAN
-    })
-
-    //Define Transaction
-    , Transaction = sequelize.define('Transaction',
-        {
-            transaction_id   : Sequelize.STRING,
-            user_id          : Sequelize.STRING,
-            product_id       : Sequelize.STRING
-        })
 
 //Test connection to Database
 sequelize

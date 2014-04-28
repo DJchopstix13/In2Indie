@@ -12,23 +12,23 @@ module.exports = function (sequelize, DataTypes) {
                 {
                     type         : DataTypes.UUID,
                     allowNull    : false,
-                    references   : models.product.product_id,
-                    referencesKey: "id"
+                    references   : models.product,
+                    referencesKey: "product_id"
 
                 },
             transaction_id       : 
                 {
                     type         : DataTypes.UUID,
                     allowNull    : false,
-                    references   : models.transaction.transaction_id,
-                    referencesKey: "id"
+                    references   : models.transaction,
+                    referencesKey: "transaction_id"
 
                 },
             product_available    : 
                 {
                     type         : DataTypes.BOOLEAN,
                     allowNull    : false,
-                    primaryKey:  : true
+                    primaryKey  : true
                 }
         },
 

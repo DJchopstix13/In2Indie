@@ -18,14 +18,14 @@ module.exports = function (sequelize, DataTypes) {
             user_id:
                 {
                     type          : DataTypes.UUID,
-                    references    : models.user.user_id,
-                    referencesKey : "id"
+                    references    : models.user,
+                    referencesKey : "user_id"
                 },
             product_id:
                 {
                     type          : DataTypes.UUID,
-                    references    : models.product.product_id,
-                    referencesKey : "id"
+                    references    : models.product,
+                    referencesKey : "product_id"
                 }
         },
 

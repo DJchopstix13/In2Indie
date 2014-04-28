@@ -26,8 +26,8 @@ module.exports = function (sequelize, DataTypes) {
                 {
                     type         : DataTypes.BOOLEAN,
                     allowNull    : false,
-                    referenes    : models.inventory.product_available,
-                    referenesKey : "id"
+                    referenes    : models.inventory,
+                    referenesKey : "product_available"
                 }
         }, 
 

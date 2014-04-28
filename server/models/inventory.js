@@ -3,6 +3,7 @@
  *
  */
 
+var models = require('../models/');
 
 module.exports = function (sequelize, DataTypes) {
     var Inventory = sequelize.define('Inventory', 

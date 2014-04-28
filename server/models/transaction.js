@@ -3,6 +3,7 @@
  *
  */
 
+var models = require('../models/');
 
 module.exports = function (sequelize, DataTypes) {
     var Transaction = sequelize.define('Transaction', 

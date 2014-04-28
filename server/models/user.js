@@ -21,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
                 
                 {
                     type  : DataTypes.STRING,
-                    values: ['community', 'In2Indie Uploader']
+                    values: ['community', 'In2Indie Uploader', 'admin']
                 },
 
             name     : DataTypes.STRING,

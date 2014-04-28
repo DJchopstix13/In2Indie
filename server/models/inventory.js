@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
                 {
                     type         : DataTypes.UUID,
                     allowNull    : false,
-                    references   : models.product,
+                    references   : models.Product,
                     referencesKey: "product_id"
 
                 },
@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
                 {
                     type         : DataTypes.UUID,
                     allowNull    : false,
-                    references   : models.transaction,
+                    references   : models.Transaction,
                     referencesKey: "transaction_id"
 
                 },
@@ -35,8 +35,8 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    Inventory.hasOne(models.transaction),
-                    Inventory.hasOne(models.product)
+                    Inventory.hasOne(models.Transaction),
+                    Inventory.hasOne(models.Product)
                 }
             }
         })

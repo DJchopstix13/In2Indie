@@ -18,13 +18,13 @@ module.exports = function (sequelize, DataTypes) {
             user_id:
                 {
                     type          : DataTypes.UUID,
-                    references    : models.user,
+                    references    : models.User,
                     referencesKey : "user_id"
                 },
             product_id:
                 {
                     type          : DataTypes.UUID,
-                    references    : models.product,
+                    references    : models.Product,
                     referencesKey : "product_id"
                 }
         },
@@ -32,8 +32,8 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    Transaction.hasOne(models.user),
-                    Transaction.hasMany(models.product)
+                    Transaction.hasOne(models.User),
+                    Transaction.hasMany(models.Product)
                 }
             }
         })

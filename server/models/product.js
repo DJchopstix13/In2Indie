@@ -26,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
                 {
                     type         : DataTypes.BOOLEAN,
                     allowNull    : false,
-                    referenes    : models.inventory,
+                    referenes    : models.Inventory,
                     referenesKey : "product_available"
                 }
         }, 
@@ -34,8 +34,8 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    Product.hasMany(models.inventory),
-                    Product.hasOne(models.transaction)
+                    Product.hasMany(models.Tnventory),
+                    Product.hasOne(models.Transaction)
                 }
             }
         })

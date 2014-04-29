@@ -35,8 +35,8 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    Inventory.hasOne(models.Transaction),
-                    Inventory.hasOne(models.Product)
+                    Inventory.belongsTo(models.Transaction),
+                    Inventory.hasMany(models.Product)
                 }
             }
         })

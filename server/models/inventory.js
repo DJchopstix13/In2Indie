@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    Inventory.belongsTo(models.Transaction
+                    Inventory.belongsTo(models.Transaction,
                         {
                             as         : transaction_id_fk,
                             constraints: false

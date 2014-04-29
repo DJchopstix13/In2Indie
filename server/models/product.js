@@ -25,11 +25,11 @@ module.exports = function (sequelize, DataTypes) {
             product_available: 
                 {
                     type         : DataTypes.BOOLEAN,
-                    //allowNull    : false,
+                    allowNull    : false,
                     referenes    : models.Inventory,
                     referenesKey : "product_available"
                 }
-        }, 
+        }/*, 
 
         {
             classMethods: {
@@ -38,7 +38,7 @@ module.exports = function (sequelize, DataTypes) {
                     Product.hasOne(models.Transaction)
                 }
             }
-        })
+        }*/)
 
     return Product
 }

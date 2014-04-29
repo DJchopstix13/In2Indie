@@ -28,7 +28,7 @@ module.exports = function (sequelize, DataTypes) {
                     //allowNull    : false,
                     primaryKey   : true
                 }
-        },
+        }/*,
 
         {
             classMethods: {
@@ -41,7 +41,7 @@ module.exports = function (sequelize, DataTypes) {
                     Inventory.hasMany(models.Product)
                 }
             }
-        })
+        }*/)
 
     return Inventory
 }

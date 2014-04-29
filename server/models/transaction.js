@@ -6,7 +6,7 @@
 var models = require('../models/');
 
 module.exports = function (sequelize, DataTypes) {
-    var TRANSACTION = sequelize.define('TRANSACTION', 
+    var Transaction = sequelize.define('Transaction', 
         {
             transaction_id: 
                 
@@ -32,11 +32,11 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    TRANSACTION.belongsTo(models.User),
-                    TRANSACTION.belongsTo(models.Product)
+                    Transaction.belongsTo(models.User),
+                    Transaction.belongsTo(models.Product)
                 }
             }
         })
 
-    return TRANSACTION
+    return Transaction
 }

@@ -31,6 +31,7 @@ If not, please refer to [NodeJS Github README](https://github.com/joyent/node) o
 *NOTE*I am assuming you have a PostgreSQL Database named `postgres` running on your machine.
 
 First, you must delete/create the PostgreSQL Database and then load sample data.  To do so, do the following:
+    
     bash delete-createdb.sh
     bash load-sample-data.sh 
 

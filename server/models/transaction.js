@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
                 {
                     type          : DataTypes.STRING,
                     primaryKey    : true,
-                    allowNull     : false
+                    //allowNull     : false
                 },
             user_id:
                 {

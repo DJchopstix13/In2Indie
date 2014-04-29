@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
             product_id           : 
                 {
                     type         : DataTypes.STRING,
-                    allowNull    : false,
+                    //allowNull    : false,
                     references   : models.Product,
                     referencesKey: "product_id"
 
@@ -19,13 +19,13 @@ module.exports = function (sequelize, DataTypes) {
             transaction_id       : 
                 {
                     type         : DataTypes.STRING,
-                    allowNull    : false,
+                    //allowNull    : false,
 
                 },
             product_available    : 
                 {
                     type         : DataTypes.BOOLEAN,
-                    allowNull    : false,
+                    //allowNull    : false,
                     primaryKey   : true
                 }
         },

@@ -19,13 +19,13 @@ module.exports = function (sequelize, DataTypes) {
                 {
                     type         : DataTypes.STRING,
                     primaryKey   : true,
-                    allowNull    : false
+                    //allowNull    : false
                 },
             product_price        : DataTypes.DECIMAL,
             product_available: 
                 {
                     type         : DataTypes.BOOLEAN,
-                    allowNull    : false,
+                    //allowNull    : false,
                     referenes    : models.Inventory,
                     referenesKey : "product_available"
                 }

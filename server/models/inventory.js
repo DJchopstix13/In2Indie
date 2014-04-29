@@ -6,7 +6,7 @@
 var models = require('../models/');
 
 module.exports = function (sequelize, DataTypes) {
-    var INVENTROY = sequelize.define('INVENTORY', 
+    var INVENTORY = sequelize.define('INVENTORY', 
         {
             product_id           : 
                 {

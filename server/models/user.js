@@ -6,7 +6,7 @@
 var models = require('../models/');
 
 module.exports = function (sequelize, DataTypes) {
-    var User = sequelize.define('User', 
+    var USER = sequelize.define('USER', 
         
         {
             username : DataTypes.STRING,
@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    User.hasOne(models.Transaction)
+                    USER.hasOne(models.Transaction)
                 }
             }
         }
@@ -42,5 +42,5 @@ module.exports = function (sequelize, DataTypes) {
 
         )
 
-    return User
+    return USER
 }

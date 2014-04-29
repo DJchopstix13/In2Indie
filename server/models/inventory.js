@@ -35,7 +35,7 @@ module.exports = function (sequelize, DataTypes) {
                 associate: function (models) {
                     Inventory.belongsTo(models.Transaction,
                         {
-                            as         : transaction_id_fk,
+                            as         : "transaction_id_fk",
                             constraints: false
                         }),
                     Inventory.hasMany(models.Product)

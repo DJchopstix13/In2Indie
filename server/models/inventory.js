@@ -20,23 +20,25 @@ module.exports = function (sequelize, DataTypes) {
                 {
                     type         : DataTypes.UUID,
                     allowNull    : false,
-                    references   : models.Transaction,
-                    referencesKey: "transaction_id"
 
                 },
             product_available    : 
                 {
                     type         : DataTypes.BOOLEAN,
                     allowNull    : false,
-                    primaryKey  : true
+                    primaryKey   : true
                 }
         },
 
         {
             classMethods: {
                 associate: function (models) {
-                    Inventory.belongsTo(models.Transaction),
-                    Inventory.hasOne(models.Product)
+                    Inventory.belongsTo(models.Transaction
+                        {
+                            as         : transaction_id_fk,
+                            constraints: false
+                        }),
+                    Inventory.hasMany(models.Product)
                 }
             }
         })

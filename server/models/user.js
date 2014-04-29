@@ -28,7 +28,7 @@ module.exports = function (sequelize, DataTypes) {
 
             name     : DataTypes.STRING,
             email    : DataTypes.STRING
-        }/*,
+        },
 
         {
             classMethods: {
@@ -36,7 +36,7 @@ module.exports = function (sequelize, DataTypes) {
                     User.hasOne(models.Transaction)
                 }
             }
-        }*/)
+        })
 
     return User
 }

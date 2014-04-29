@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
                     references    : models.Product,
                     referencesKey : "product_id"
                 }
-        }/*,
+        },
 
         {
             classMethods: {
@@ -36,7 +36,7 @@ module.exports = function (sequelize, DataTypes) {
                     Transaction.belongsTo(models.Product)
                 }
             }
-        }*/)
+        })
 
     return Transaction
 }

@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
             product_id: 
                 
                 {
-                    type         : DataTypes.UUID,
+                    type         : DataTypes.STRING,
                     primaryKey   : true,
                     allowNull    : false
                 },

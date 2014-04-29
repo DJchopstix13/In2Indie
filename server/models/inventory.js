@@ -10,7 +10,7 @@ module.exports = function (sequelize, DataTypes) {
         {
             product_id           : 
                 {
-                    type         : DataTypes.UUID,
+                    type         : DataTypes.STRING,
                     allowNull    : false,
                     references   : models.Product,
                     referencesKey: "product_id"
@@ -18,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
                 },
             transaction_id       : 
                 {
-                    type         : DataTypes.UUID,
+                    type         : DataTypes.STRING,
                     allowNull    : false,
 
                 },

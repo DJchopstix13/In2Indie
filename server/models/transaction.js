@@ -11,19 +11,19 @@ module.exports = function (sequelize, DataTypes) {
             transaction_id: 
                 
                 {
-                    type          : DataTypes.UUID,
+                    type          : DataTypes.STRING,
                     primaryKey    : true,
                     allowNull     : false
                 },
             user_id:
                 {
-                    type          : DataTypes.UUID,
+                    type          : DataTypes.STRING,
                     references    : models.User,
                     referencesKey : "user_id"
                 },
             product_id:
                 {
-                    type          : DataTypes.UUID,
+                    type          : DataTypes.STRING,
                     references    : models.Product,
                     referencesKey : "product_id"
                 }

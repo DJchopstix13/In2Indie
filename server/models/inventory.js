@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
                 {
                     type         : DataTypes.UUID,
                     allowNull    : false,
-                    references   : models.product,
+                    references   : models.Product,
                     referencesKey: "product_id"
 
                 },
@@ -20,23 +20,25 @@ module.exports = function (sequelize, DataTypes) {
                 {
                     type         : DataTypes.UUID,
                     allowNull    : false,
-                    references   : models.transaction,
-                    referencesKey: "transaction_id"
 
                 },
             product_available    : 
                 {
                     type         : DataTypes.BOOLEAN,
                     allowNull    : false,
-                    primaryKey  : true
+                    primaryKey   : true
                 }
         },
 
         {
             classMethods: {
                 associate: function (models) {
-                    Inventory.hasOne(models.transaction),
-                    Inventory.hasOne(models.product)
+                    Inventory.belongsTo(models.Transaction,
+                        {
+                            as         : "transaction_id_fk",
+                            constraints: false
+                        }),
+                    Inventory.hasMany(models.Product)
                 }
             }
         })

@@ -9,6 +9,8 @@ module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define('User', 
         
         {
+            timestamps: false,
+            freezeTableNme: true,
             username : DataTypes.STRING,
             password : DataTypes.STRING,
             user_id  : 

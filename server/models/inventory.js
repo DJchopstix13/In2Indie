@@ -8,6 +8,8 @@ var models = require('../models/');
 module.exports = function (sequelize, DataTypes) {
     var Inventory = sequelize.define('Inventory', 
         {
+            timestamps: false,
+            freezeTableNme: true,
             product_id           : 
                 {
                     type         : DataTypes.STRING,

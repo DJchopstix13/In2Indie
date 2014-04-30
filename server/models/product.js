@@ -8,6 +8,8 @@
 module.exports = function (sequelize, DataTypes) {
     var Product = sequelize.define('Product', 
         {
+            timestamps: false,
+            freezeTableNme: true,
             product_name         : DataTypes.STRING,
             product_type: 
                 {

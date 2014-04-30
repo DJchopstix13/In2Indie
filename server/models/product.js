@@ -8,8 +8,7 @@
 module.exports = function (sequelize, DataTypes) {
     var Product = sequelize.define('Product', 
         {
-            timestamps: false,
-            freezeTableNme: true,
+            
             product_name         : DataTypes.STRING,
             product_type: 
                 {
@@ -32,7 +31,7 @@ module.exports = function (sequelize, DataTypes) {
                     referenesKey : "product_available"
                 }
         }, 
-        
+
         {
             timestamps: false,
             freezeTableNme: true

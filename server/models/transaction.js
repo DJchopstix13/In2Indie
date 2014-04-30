@@ -8,8 +8,7 @@ var models = require('../models/');
 module.exports = function (sequelize, DataTypes) {
     var Transaction = sequelize.define('Transaction', 
         {
-            timestamps: false,
-            freezeTableNme: true,
+            
             transaction_id: 
                 
                 {
@@ -31,7 +30,7 @@ module.exports = function (sequelize, DataTypes) {
                 }
         },
 
-        
+
         {
             timestamps: false,
             freezeTableNme: true

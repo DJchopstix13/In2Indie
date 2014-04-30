@@ -32,6 +32,14 @@ module.exports = function (sequelize, DataTypes) {
             email    : DataTypes.STRING
         },
 
+        
+        {
+            timestamps: false,
+            freezeTableNme: true
+        },
+
+
+
         {
             classMethods: {
                 associate: function (models) {

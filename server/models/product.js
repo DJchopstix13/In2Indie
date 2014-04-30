@@ -32,6 +32,11 @@ module.exports = function (sequelize, DataTypes) {
                     referenesKey : "product_available"
                 }
         }, 
+        
+        {
+            timestamps: false,
+            freezeTableNme: true
+        },
 
         {
             classMethods: {

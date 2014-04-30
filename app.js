@@ -11,7 +11,10 @@ var express = require('express'),
     path = require('path'),
     db = require('./server/models'),
     controllers = require('./web-client/controllers/main'),
-    stylus = require('stylus');
+    stylus = require('stylus'), 
+    passport = require('passport'), 
+    flash = require('connect-flash'), 
+    LocalStrategy = require('passport-local').Strategy;
 
 var app = express();
 
@@ -21,35 +24,47 @@ app.set('views', path.join(__dirname, 'web-client', 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon(path.join(__dirname, 'public/icons/in2indie.png')));
 app.use(express.logger('dev'));
+app.use(express.cookieParser());  
+app.use(express.bodyParser());
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'web-client', 'public')));
+app.use(express.session({ secret: 'secret' }));
+app.use(flash());
+// Initialize Passport!  Also use passport.session() middleware, to support
+// persistent login sessions (recommended).
+app.use(passport.initialize());
+app.use(passport.session());
+
+/*Implementing passport - middleware for authentication*/
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+      User.findOne({ username: username }, function(err, user) {
+        if (err) { 
+            return done(err); 
+        }
+        if (!user) {
+          return done(null, false, { message: 'Incorrect username.' });
+        }
+        if (!user.validPassword(password)) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+        return done(null, user);
+      });
+    }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+ 
+passport.deserializeUser(function(obj, done) {
+    done(null, obj);
+});
 
 
-//Option #1: using sub-apps via use method
-/*app.use('./server/', require('./server/app.js').app)
-      use('./web-client/', require('./web-client/app.js').app)
-      listen(3000);
-      */
-
-//Option #2: using sub-apps via configure function
-/*app.configure(function () {
-	app.use(express.compress());
-    app.use(express.logger('dev'));
-    app.set('json spaces',0);
-    app.use(express.limit('2mb'));
-    app.use(express.bodyParser());
-    app.use('./server/app.js', app.router);
-    app.use('./web-client/app.js', app.router);
-    app.use(function(err, req, res, callback){
-        res.json(err.code, {});
-    });
-})*/
-
-//Option #3: using require method - based off of former
-//web-client app.js
 require('./web-client/controllers/main')(app);
 
 /*development only*/
@@ -57,10 +72,6 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 };
 
-//Only if error handling fails
-/*http.createServer(app).listen(app.get('port'), function(){
-  //  console.log('Express server listening on port ' + app.get('port'));
-});*/
 
 
 /*Error handling for server side*/
@@ -75,5 +86,4 @@ db.sequelize.sync().complete(function (err) {
         )
     }
 })
-
 

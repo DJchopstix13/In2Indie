@@ -8,26 +8,35 @@ var models = require('../models/');
 module.exports = function (sequelize, DataTypes) {
     var Transaction = sequelize.define('Transaction', 
         {
+            
             transaction_id: 
                 
                 {
-                    type          : DataTypes.UUID,
+                    type          : DataTypes.STRING,
                     primaryKey    : true,
-                    allowNull     : false
+                    //allowNull     : false
                 },
             user_id:
                 {
-                    type          : DataTypes.UUID,
+                    type          : DataTypes.STRING,
                     references    : models.User,
                     referencesKey : "user_id"
                 },
             product_id:
                 {
-                    type          : DataTypes.UUID,
+                    type          : DataTypes.STRING,
                     references    : models.Product,
                     referencesKey : "product_id"
                 }
         },
+
+
+        {
+            timestamps: false,
+            freezeTableNme: true
+        },
+
+
 
         {
             classMethods: {

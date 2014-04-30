@@ -8,6 +8,7 @@
 module.exports = function (sequelize, DataTypes) {
     var Product = sequelize.define('Product', 
         {
+            
             product_name         : DataTypes.STRING,
             product_type: 
                 {
@@ -17,9 +18,9 @@ module.exports = function (sequelize, DataTypes) {
             product_id: 
                 
                 {
-                    type         : DataTypes.UUID,
+                    type         : DataTypes.STRING,
                     primaryKey   : true,
-                    allowNull    : false
+                    //allowNull    : false
                 },
             product_price        : DataTypes.DECIMAL,
             product_available: 
@@ -30,6 +31,11 @@ module.exports = function (sequelize, DataTypes) {
                     referenesKey : "product_available"
                 }
         }, 
+
+        {
+            timestamps: false,
+            freezeTableNme: true
+        },
 
         {
             classMethods: {

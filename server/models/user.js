@@ -9,14 +9,15 @@ module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define('User', 
         
         {
+            
             username : DataTypes.STRING,
             password : DataTypes.STRING,
             user_id  : 
                 
                 {
-                    type: DataTypes.UUID,
+                    type: DataTypes.STRING,
                     primaryKey: true,
-                    allowNull: false
+                    //allowNull: false
                 },
 
             user_type: 
@@ -30,17 +31,21 @@ module.exports = function (sequelize, DataTypes) {
             email    : DataTypes.STRING
         },
 
+
+        {
+            timestamps: false,
+            freezeTableNme: true
+        },
+
+
+
         {
             classMethods: {
                 associate: function (models) {
                     User.hasOne(models.Transaction)
                 }
             }
-        }
-
-
-
-        )
+        })
 
     return User
 }

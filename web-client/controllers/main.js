@@ -30,9 +30,17 @@ module.exports = function (app) {
     app.get('/auth/facebook', passport.authenticate('facebook'));
  
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-        successRedirect: '/',
-        failureRedirect: '/login'
+        successRedirect: '/success',
+        failureRedirect: '/error'
     }));
+ 
+    app.get('/success', function(req, res, next) {
+        res.send('Successfully logged in.');
+    });
+ 
+    app.get('/error', function(req, res, next) {
+        res.send("Error logging in.");
+    });
 
     app.get('/', function (req, res) {
         res.render('index', { title: 'In2Indie'});

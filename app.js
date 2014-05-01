@@ -15,7 +15,8 @@ var express = require('express'),
     passport = require('passport'), 
     flash = require('connect-flash'), 
     FacebookStrategy = require('passport-facebook').Strategy;
- 
+
+//facebook id 
 var FACEBOOK_APP_ID = '1507032019518117';
 var FACEBOOK_APP_SECRET = '2c0343cdf61802decbcd8239db59fa9f';
 
@@ -73,51 +74,16 @@ passport.deserializeUser(function(obj, done) {
 app.use(function(req,res,next){
     req.db = db;
     next();
-});
+});*/
 
 require('./web-client/controllers/main')(app);
 
-//development only
+/*//development only
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 };
 */
 
-/**
- * Module dependencies.
- */
-var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
-var path = require('path');
-var passport = require('passport');
-var FacebookStrategy = require('passport-facebook').Strategy;
- 
-var FACEBOOK_APP_ID = '1507032019518117'
-var FACEBOOK_APP_SECRET = '2c0343cdf61802decbcd8239db59fa9f';
- 
-var app = express();
- 
-// all environments
- 
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
- 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
 //using facebook auth
 passport.use(new FacebookStrategy({
   clientID: FACEBOOK_APP_ID,
@@ -137,29 +103,9 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
  
-app.get('/auth/facebook', passport.authenticate('facebook'));
- 
-app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-  successRedirect: '/success',
-  failureRedirect: '/error'
-}));
- 
-app.get('/success', function(req, res, next) {
-  res.send('Successfully logged in.');
-});
- 
-app.get('/error', function(req, res, next) {
-  res.send("Error logging in.");
-});
- 
-app.get('/', function(req, res, next) {
+/*app.get('/', function(req, res, next) {
   res.sendfile('./html/auth.html');
-});
- 
- 
-http.createServer(app).listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + app.get('port'));
-});
+});*/
 
 //Error handling for server side
 db.sequelize.sync().complete(function (err) {

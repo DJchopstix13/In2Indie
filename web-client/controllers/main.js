@@ -1,16 +1,10 @@
+
+
 module.exports = function (app) {
 
     app.get('/', function (req, res) {
         res.render('index', { title: 'In2Indie'});
     });
-
-    //facebook authentication
-    app.get('/auth/facebook', passport.authenticate('facebook'));
- 
-    app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-        successRedirect: '/success',
-        failureRedirect: '/error'
-    }));
  
     app.get('/success', function(req, res, next) {
         res.send('Successfully logged in.'); 

@@ -62,8 +62,15 @@ app.use(express.static(path.join(__dirname, 'web-client', 'public')));
 app.use(express.session({ secret: 'secret' }));
 app.use(flash());
 
-
 require('./web-client/controllers/main')(app);
+
+//facebook authentication
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    successRedirect: '/success',
+    failureRedirect: '/error'
+}));
 
 //development only
 if ('development' == app.get('env')) {

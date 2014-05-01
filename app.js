@@ -42,6 +42,8 @@ app.use(express.methodOverride());
 //initiliaize passport
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.session({ secret: 'secret' }));
+
 
 //using facebook auth
 passport.use(new FacebookStrategy({
@@ -57,7 +59,7 @@ passport.use(new FacebookStrategy({
 passport.use(new TwitterStrategy({
   consumerKey: TWITTER_APP_ID,
   consumerSecret: TWITTER_APP_SECRET,
-  callbackURL: 'http://localhost:3000/auth/twitter/callback'
+  callbackURL: 'http://98.158.149.241/auth/twitter/callback'
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function() {
     done(null, profile);
@@ -110,4 +112,5 @@ db.sequelize.sync().complete(function (err) {
         )
     }
 })
+
 

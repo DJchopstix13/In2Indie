@@ -8,7 +8,7 @@ module.exports = function (app) {
         }
     });*/
 
-    app.get('/account', ensureAuthenticated, function (req, res) {
+    /*app.get('/account', ensureAuthenticated, function (req, res) {
         res.render('account', {
             user: req.user
         });
@@ -25,7 +25,14 @@ module.exports = function (app) {
             return next(); 
         }
         res.redirect('/login')
-    }
+    }*/
+
+    app.get('/auth/facebook', passport.authenticate('facebook'));
+ 
+    app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+        successRedirect: '/',
+        failureRedirect: '/login'
+    }));
 
     app.get('/', function (req, res) {
         res.render('index', { title: 'In2Indie'});

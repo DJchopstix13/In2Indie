@@ -9,11 +9,16 @@ block content
             center(id='login-content')
                 h3 Sign-in
                 form(class='form-vertical', action='/login', method='post')
-                input(type='text', id='inputEmail', placeholder='Email')
+                div
+                    label Username:
+                    input(type='text', name='username')
                 br
-                input(type='password', id='inputPassword', placeholder='Password')
+                div
+                    label Password:
+                    input(type='password', name='password')
                 br
-                a(type='submit', class='btn btn-primary', id='signin') Sign In
+                div
+                    input(type='submit', value='Log In')
                 hr
                 p To Sign Up for In2Indie:
                 a(href='/signup' class='btn', id='signup') 

@@ -1,34 +1,27 @@
 module.exports = function (app) {
 
-    /*app.get('/', function (req, res) {
-        if (req.session.isLoggedIn) {
-            res.redirect('/home');
-        } else {
-            res.render('login', { title: 'Login'});
-        }
-    });*/
-
-    /*app.get('/account', ensureAuthenticated, function (req, res) {
-        res.render('account', {
-            user: req.user
-        });
-    });
-
-    app.get('/login', function (req, res) {
-        res.render('login', {
-            user: req.user,
-          //  message: req.flash('error')
-        });
-    });
-    function ensureAuthenticated(req, res, next) {
-        if (req.isAuthenticated()) { 
-            return next(); 
-        }
-        res.redirect('/login')
-    }*/
-
     app.get('/', function (req, res) {
         res.render('index', { title: 'In2Indie'});
+    });
+
+    //facebook authentication
+    app.get('/auth/facebook', passport.authenticate('facebook'));
+ 
+    app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+        successRedirect: '/success',
+        failureRedirect: '/error'
+    }));
+ 
+    app.get('/success', function(req, res, next) {
+        res.send('Successfully logged in.'); 
+    });
+ 
+    app.get('/error', function(req, res, next) {
+        res.send("Error logging in.");
+    });
+ 
+    app.get('/', function(req, res, next) {
+        res.sendfile('./web-client/views/index.jade');
     });
 
     app.get('/login', function (req, res){

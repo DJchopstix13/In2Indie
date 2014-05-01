@@ -63,26 +63,6 @@ app.use(express.session({ secret: 'secret' }));
 app.use(flash());
 
 
-app.get('/auth/facebook', passport.authenticate('facebook'));
- 
-app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-  successRedirect: '/success',
-  failureRedirect: '/error'
-}));
- 
-app.get('/success', function(req, res, next) {
-  res.render('index', { title: 'In2Indie'});
-});
- 
-app.get('/error', function(req, res, next) {
-  res.send("Error logging in.");
-});
- 
-/*app.get('/', function(req, res, next) {
-  res.sendfile('./web-client/views/index.jade');
-});*/
-
-
 require('./web-client/controllers/main')(app);
 
 //development only

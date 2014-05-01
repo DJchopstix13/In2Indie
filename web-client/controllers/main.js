@@ -1,12 +1,25 @@
 module.exports = function (app) {
 
-    /*app.get('/', function (req, res) {
+    app.get('/', function (req, res) {
         if (req.session.isLoggedIn) {
             res.redirect('/home');
         } else {
             res.render('login', { title: 'Login'});
         }
+    });
+
+    /*app.get('/account', ensureAuthenticated, function (req, res) {
+        res.render('account', {
+            user: req.user
+        });
     });*/
+
+    app.get('/login', function (req, res) {
+        res.render('login', {
+            user: req.user,
+            message: req.flash('error')
+        });
+    });
 
     app.get('/', function (req, res) {
         res.render('index', { title: 'In2Indie'});

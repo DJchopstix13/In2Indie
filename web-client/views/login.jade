@@ -8,12 +8,12 @@ block content
             hr
             center(id='login-content')
                 h3 Sign-in
-                form(class='form-vertical')
+                form(class='form-vertical', action='/login', method='post')
                 input(type='text', id='inputEmail', placeholder='Email')
                 br
                 input(type='password', id='inputPassword', placeholder='Password')
                 br
-                a(href='#', type='submit', class='btn btn-primary', id='signin') Sign In
+                a(type='submit', class='btn btn-primary', id='signin') Sign In
                 hr
                 p To Sign Up for In2Indie:
                 a(href='/signup' class='btn', id='signup') 

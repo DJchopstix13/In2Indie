@@ -64,6 +64,10 @@ passport.deserializeUser(function(obj, done) {
     done(null, obj);
 });
 
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 
 require('./web-client/controllers/main')(app);
 
@@ -71,8 +75,6 @@ require('./web-client/controllers/main')(app);
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 };
-
-
 
 /*Error handling for server side*/
 db.sequelize.sync().complete(function (err) {

@@ -103,9 +103,31 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
  
-/*app.get('/', function(req, res, next) {
-  res.sendfile('./html/auth.html');
-});*/
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+ 
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+ 
+app.get('/auth/facebook', passport.authenticate('facebook'));
+ 
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/success',
+  failureRedirect: '/error'
+}));
+ 
+app.get('/success', function(req, res, next) {
+  res.send('Successfully logged in.');
+});
+ 
+app.get('/error', function(req, res, next) {
+  res.send("Error logging in.");
+});
+ 
+app.get('/', function(req, res, next) {
+  res.se
 
 //Error handling for server side
 db.sequelize.sync().complete(function (err) {

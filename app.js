@@ -66,6 +66,14 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
  
+
+
+app.use(app.router);
+app.use(express.static(path.join(__dirname, 'web-client', 'public')));
+app.use(express.session({ secret: 'secret' }));
+app.use(flash());
+
+
 app.get('/auth/facebook', passport.authenticate('facebook'));
  
 app.get('/auth/facebook/callback', passport.authenticate('facebook', {
@@ -84,12 +92,6 @@ app.get('/error', function(req, res, next) {
 app.get('/', function(req, res, next) {
   res.sendfile('./html/auth.html');
 });
-
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'web-client', 'public')));
-app.use(express.session({ secret: 'secret' }));
-app.use(flash());
-
 
 /*
 //Implementing passport - middleware for authentication

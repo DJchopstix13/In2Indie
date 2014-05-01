@@ -11,7 +11,14 @@ var express = require('express'),
     path = require('path'),
     db = require('./server/models'),
     controllers = require('./web-client/controllers/main'),
-    stylus = require('stylus');
+    stylus = require('stylus'), 
+    passport = require('passport'), 
+    flash = require('connect-flash'), 
+    FacebookStrategy = require('passport-facebook').Strategy;
+
+//facebook id info
+var FACEBOOK_APP_ID = '1387349068217839';
+var FACEBOOK_APP_SECRET = 'e35105db2e128b6c1f2a4251437b9c0a';
 
 var app = express();
 
@@ -21,49 +28,56 @@ app.set('views', path.join(__dirname, 'web-client', 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon(path.join(__dirname, 'public/icons/in2indie.png')));
 app.use(express.logger('dev'));
+app.use(express.cookieParser());  
+app.use(express.bodyParser());
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+
+//initiliaize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//using facebook auth
+passport.use(new FacebookStrategy({
+  clientID: FACEBOOK_APP_ID,
+  clientSecret: FACEBOOK_APP_SECRET,
+  callbackURL: 'http://98.158.149.241/auth/facebook/callback'
+}, function(accessToken, refreshToken, profile, done) {
+  process.nextTick(function() {
+    done(null, profile);
+  });
+}));
+ 
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+ 
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'web-client', 'public')));
+app.use(express.session({ secret: 'secret' }));
+app.use(flash());
 
-
-//Option #1: using sub-apps via use method
-/*app.use('./server/', require('./server/app.js').app)
-      use('./web-client/', require('./web-client/app.js').app)
-      listen(3000);
-      */
-
-//Option #2: using sub-apps via configure function
-/*app.configure(function () {
-	app.use(express.compress());
-    app.use(express.logger('dev'));
-    app.set('json spaces',0);
-    app.use(express.limit('2mb'));
-    app.use(express.bodyParser());
-    app.use('./server/app.js', app.router);
-    app.use('./web-client/app.js', app.router);
-    app.use(function(err, req, res, callback){
-        res.json(err.code, {});
-    });
-})*/
-
-//Option #3: using require method - based off of former
-//web-client app.js
 require('./web-client/controllers/main')(app);
 
-/*development only*/
+//facebook authentication
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    successRedirect: '/success',
+    failureRedirect: '/error'
+}));
+
+//development only
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 };
 
-//Only if error handling fails
-/*http.createServer(app).listen(app.get('port'), function(){
-  //  console.log('Express server listening on port ' + app.get('port'));
-});*/
-
-
-/*Error handling for server side*/
+//Error handling for server side
 db.sequelize.sync().complete(function (err) {
     if (err) {
         throw err;
@@ -75,5 +89,4 @@ db.sequelize.sync().complete(function (err) {
         )
     }
 })
-
 

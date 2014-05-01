@@ -3,3 +3,5 @@ node_modules/
 npm-debug.log
 web-client/output
 .bin/
+server-info.txt
+html/

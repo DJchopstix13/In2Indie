@@ -1,15 +1,15 @@
 module.exports = function (app) {
 
-    /*app.get('/', function (req, res) {
-        if (req.session.isLoggedIn) {
-            res.redirect('/home');
-        } else {
-            res.render('login', { title: 'Login'});
-        }
-    });*/
-
     app.get('/', function (req, res) {
         res.render('index', { title: 'In2Indie'});
+    });
+ 
+    app.get('/success', function(req, res, next) {
+        res.redirect('/'); 
+    });
+ 
+    app.get('/error', function(req, res, next) {
+        res.send("Error logging in.");
     });
 
     app.get('/login', function (req, res){

@@ -14,9 +14,9 @@ block content
         center
             //h1 Welcome To In2Indie
  
-            div(class='span12', id='video-sample')
+            div(class='span8', id='video-sample')
             
-                video(width='800', height='350', poster='poster.jpg', controls='controls', preload='none')
+                video(width='500', height='350', poster='poster.jpg', controls='controls', preload='none')
     
                 //MP4 for Safari, IE9, iPhone, iPad, Android, and Windows Phone 7 
                 source(type='video/mp4', src='myvideo.mp4')
@@ -43,9 +43,23 @@ block content
                    //Image as a last resort 
                     img(src='myvideo.jpg', width='320', height='240', title='No video playback capabilities')
                
-            div(id=login)
-                a(href='/login', class='btn' type='button') Login/ Sign-Up for In2Indie 
-            
+            div(id=login, class='span3')
+                right(id='login-content')
+                    h3 Sign-in
+                    form(class='form-vertical', action='/login', method='post')
+                    input(type='text', id='inputEmail', placeholder='Email')
+                    br
+                    input(type='password', id='inputPassword', placeholder='Password')
+                    br
+                    a(type='submit', class='btn btn-primary', id='signin') Sign In
+                    hr
+                    p To Sign Up for In2Indie:
+                    a(href='/signup' class='btn', id='signup') 
+                        p Sign Up
+                    div(class="content center-area is-center")
+                        div(class="block")
+                            a(href='/auth/facebook', class='pure-button ') sign in with Facebook
+
             br
             div(class='input-prepend')
                 div(class='btn-group')
@@ -58,6 +72,9 @@ block content
             p To view More Sample, click 
                 a(href='/sample-video')  here
             
+            
+
+
             br
             br
             div(id='results')

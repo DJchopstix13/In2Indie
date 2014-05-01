@@ -15,6 +15,9 @@
     "sequelize": "*",
     "routes": "*",
     "task": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "connect-flash": "0.1.x",
+    "passport": "*",
+    "passport-facebook": "*"
   }
 }

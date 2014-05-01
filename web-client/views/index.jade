@@ -59,18 +59,7 @@ block content
                     div(class="content center-area is-center")
                         div(class="block")
                             a(href='/auth/facebook', class='pure-button ') sign in with Facebook
-                                #fb-root
-                                script#facebook-jssdk(src='//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1387349068217839&version=v2.0')
-                                script
-                                    (function(d, s, id) {
-                                        var js, fjs = d.getElementsByTagName(s)[0];
-                                        if (d.getElementById(id)) return;
-                                        js = d.createElement(s); js.id = id;
-                                        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1387349068217839&version=v2.0";
-                                        fjs.parentNode.insertBefore(js, fjs);
-                                    }
-                                    (document, 'script', 'facebook-jssdk'));
-                                
+
             br
             div(class='input-prepend')
                 div(class='btn-group')

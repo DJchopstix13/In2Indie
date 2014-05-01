@@ -16,7 +16,7 @@ var express = require('express'),
     flash = require('connect-flash'), 
     FacebookStrategy = require('passport-facebook').Strategy;
 
-//facebook id 
+//facebook id info
 var FACEBOOK_APP_ID = '1387349068217839';
 var FACEBOOK_APP_SECRET = 'e35105db2e128b6c1f2a4251437b9c0a';
 
@@ -38,7 +38,6 @@ app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 //using facebook auth
 passport.use(new FacebookStrategy({
   clientID: FACEBOOK_APP_ID,
@@ -57,16 +56,6 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
- 
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
- 
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
- 
-
 
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'web-client', 'public')));
@@ -89,55 +78,17 @@ app.get('/error', function(req, res, next) {
   res.send("Error logging in.");
 });
  
-app.get('/', function(req, res, next) {
-  res.sendfile('./html/auth.html');
-});
-
-/*
-//Implementing passport - middleware for authentication
-passport.use(new LocalStrategy(
-    function(username, password, done) {
-      User.findOne({ username: username }, function(err, user) {
-        if (err) { 
-            return done(err); 
-        }
-        if (!user) {
-            return done(null, false, { 
-                message: 'Incorrect username.' 
-            });
-        }
-        if (!user.validPassword(password)) {
-            return done(null, false, { 
-                message: 'Incorrect password.' 
-            });
-        }
-        return done(null, user);
-      });
-    }
-));
-
-passport.serializeUser(function(user, done) {
-    done(null, user);
-});
- 
-passport.deserializeUser(function(obj, done) {
-    done(null, obj);
-});
-
-app.use(function(req,res,next){
-    req.db = db;
-    next();
+/*app.get('/', function(req, res, next) {
+  res.sendfile('./web-client/views/index.jade');
 });*/
+
 
 require('./web-client/controllers/main')(app);
 
-/*//development only
+//development only
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 };
-*/
-
-
 
 //Error handling for server side
 db.sequelize.sync().complete(function (err) {

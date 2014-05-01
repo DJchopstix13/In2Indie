@@ -33,56 +33,11 @@ app.use(express.bodyParser());
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'web-client', 'public')));
-app.use(express.session({ secret: 'secret' }));
-app.use(flash());
 
+//initiliaize passport
 app.use(passport.initialize());
 app.use(passport.session());
-/*
-//Implementing passport - middleware for authentication
-passport.use(new LocalStrategy(
-    function(username, password, done) {
-      User.findOne({ username: username }, function(err, user) {
-        if (err) { 
-            return done(err); 
-        }
-        if (!user) {
-            return done(null, false, { 
-                message: 'Incorrect username.' 
-            });
-        }
-        if (!user.validPassword(password)) {
-            return done(null, false, { 
-                message: 'Incorrect password.' 
-            });
-        }
-        return done(null, user);
-      });
-    }
-));
 
-passport.serializeUser(function(user, done) {
-    done(null, user);
-});
- 
-passport.deserializeUser(function(obj, done) {
-    done(null, obj);
-});
-
-app.use(function(req,res,next){
-    req.db = db;
-    next();
-});*/
-
-require('./web-client/controllers/main')(app);
-
-/*//development only
-if ('development' == app.get('env')) {
-    app.use(express.errorHandler());
-};
-*/
 
 //using facebook auth
 passport.use(new FacebookStrategy({
@@ -129,6 +84,58 @@ app.get('/error', function(req, res, next) {
 app.get('/', function(req, res, next) {
   res.sendfile('./html/auth.html');
 });
+
+app.use(app.router);
+app.use(express.static(path.join(__dirname, 'web-client', 'public')));
+app.use(express.session({ secret: 'secret' }));
+app.use(flash());
+
+
+/*
+//Implementing passport - middleware for authentication
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+      User.findOne({ username: username }, function(err, user) {
+        if (err) { 
+            return done(err); 
+        }
+        if (!user) {
+            return done(null, false, { 
+                message: 'Incorrect username.' 
+            });
+        }
+        if (!user.validPassword(password)) {
+            return done(null, false, { 
+                message: 'Incorrect password.' 
+            });
+        }
+        return done(null, user);
+      });
+    }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+ 
+passport.deserializeUser(function(obj, done) {
+    done(null, obj);
+});
+
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});*/
+
+require('./web-client/controllers/main')(app);
+
+/*//development only
+if ('development' == app.get('env')) {
+    app.use(express.errorHandler());
+};
+*/
+
+
 
 //Error handling for server side
 db.sequelize.sync().complete(function (err) {

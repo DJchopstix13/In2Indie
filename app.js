@@ -17,8 +17,8 @@ var express = require('express'),
     FacebookStrategy = require('passport-facebook').Strategy;
 
 //facebook id 
-var FACEBOOK_APP_ID = '1507032019518117';
-var FACEBOOK_APP_SECRET = '2c0343cdf61802decbcd8239db59fa9f';
+var FACEBOOK_APP_ID = '1387349068217839';
+var FACEBOOK_APP_SECRET = 'e35105db2e128b6c1f2a4251437b9c0a';
 
 var app = express();
 
@@ -127,7 +127,8 @@ app.get('/error', function(req, res, next) {
 });
  
 app.get('/', function(req, res, next) {
-  res.se
+  res.sendfile('./html/auth.html');
+});
 
 //Error handling for server side
 db.sequelize.sync().complete(function (err) {

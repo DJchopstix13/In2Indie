@@ -12,6 +12,10 @@ module.exports = function (app) {
         res.send("Error logging in.");
     });
 
+    app.get('/home', function (req, res) {
+        res.render('home', { title: 'In2Indie'});
+    });
+
     app.get('/login', function (req, res){
         res.render('login', { title: 'Login to In2Indie'});
     });

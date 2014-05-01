@@ -5,7 +5,7 @@ module.exports = function (app) {
     });
  
     app.get('/success', function(req, res, next) {
-        res.redirect('/'); 
+        res.redirect('/home'); 
     });
  
     app.get('/error', function(req, res, next) {

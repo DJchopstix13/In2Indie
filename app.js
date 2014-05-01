@@ -83,12 +83,12 @@ require('./web-client/controllers/main')(app);
 
 //facebook authentication
 app.get('/auth/facebook', passport.authenticate('facebook'));
-
 app.get('/auth/facebook/callback', passport.authenticate('facebook', {
     successRedirect: '/success',
     failureRedirect: '/error'
 }));
 
+//twitter authentication
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', {
   successRedirect: '/success',

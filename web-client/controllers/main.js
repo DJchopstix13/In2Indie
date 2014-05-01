@@ -7,7 +7,7 @@ module.exports = function (app) {
     });
  
     app.get('/success', function(req, res, next) {
-        res.send('Successfully logged in.'); 
+        res.redirect('/'); 
     });
  
     app.get('/error', function(req, res, next) {

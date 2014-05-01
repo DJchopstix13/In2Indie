@@ -14,7 +14,7 @@ block content
         center
             //h1 Welcome To In2Indie
  
-            div(class='span12', id='video-sample')
+            div(class='span6', id='video-sample')
             
                 video(width='800', height='350', poster='poster.jpg', controls='controls', preload='none')
     
@@ -43,8 +43,22 @@ block content
                    //Image as a last resort 
                     img(src='myvideo.jpg', width='320', height='240', title='No video playback capabilities')
                
-            div(id=login)
-                a(href='/login', class='btn' type='button') Login/ Sign-Up for In2Indie 
+            div(id=login, class='span6 hero-unit')
+                h1(class="text-center") Login to In2Indie
+                hr
+                center(id='login-content')
+                    h3 Sign-in
+                    form(class='form-vertical', action='/login', method='post')
+                    input(type='text', id='inputEmail', placeholder='Email')
+                    br
+                    input(type='password', id='inputPassword', placeholder='Password')
+                    br
+                    a(type='submit', class='btn btn-primary', id='signin') Sign In
+                    hr
+                    p To Sign Up for In2Indie:
+                    a(href='/signup' class='btn', id='signup') 
+                        p Sign Up
+                    
             
             br
             div(class='input-prepend')

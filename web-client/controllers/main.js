@@ -1,5 +1,3 @@
-
-
 module.exports = function (app) {
 
     app.get('/', function (req, res) {
@@ -12,10 +10,6 @@ module.exports = function (app) {
  
     app.get('/error', function(req, res, next) {
         res.send("Error logging in.");
-    });
- 
-    app.get('/', function(req, res, next) {
-        res.sendfile('./web-client/views/index.jade');
     });
 
     app.get('/login', function (req, res){

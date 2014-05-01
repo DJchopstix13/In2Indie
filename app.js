@@ -15,6 +15,7 @@ var express = require('express'),
     passport = require('passport'), 
     flash = require('connect-flash'), 
     FacebookStrategy = require('passport-facebook').Strategy;
+    TwitterStrategy = require('passport-twitter').Strategy;
 
 //facebook id info
 var FACEBOOK_APP_ID = '1387349068217839';

@@ -71,7 +71,7 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 }));
  
 app.get('/success', function(req, res, next) {
-  res.send('Successfully logged in.');
+  res.render('index', { title: 'In2Indie'});
 });
  
 app.get('/error', function(req, res, next) {

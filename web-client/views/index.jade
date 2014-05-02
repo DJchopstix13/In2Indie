@@ -12,8 +12,7 @@ block content
 
     div(class='row-fluid')
         center
-            //h1 Welcome To In2Indie
- 
+             
             div(class='span8', id='video-sample')
             
                 video(width='500', height='350', poster='poster.jpg', controls='controls', preload='none')
@@ -45,17 +44,7 @@ block content
                
             div(id=login, class='span3')
                 right(id='login-content')
-                    h3 Sign-in
-                    form(class='form-vertical', action='/login', method='post')
-                    input(type='text', id='inputEmail', placeholder='Email')
-                    br
-                    input(type='password', id='inputPassword', placeholder='Password')
-                    br
-                    a(type='submit', class='btn btn-primary', id='signin') Sign In
-                    hr
-                    p To Sign Up for In2Indie:
-                    a(href='/signup' class='btn', id='signup') 
-                        p Sign Up
+                    h3 Sign-in/ Sign-Up
                     div(class="content center-area is-center")
                         div(class="block")
                             a(href='/auth/facebook', class='pure-button ') 
@@ -65,7 +54,6 @@ block content
                             a(href='/auth/twitter', class='pure-button ') 
                                 img(src='https://dev.twitter.com/sites/default/files/images_documentation/sign-in-with-twitter-gray.png', alt='Login with Twitter')
 
-            br
             div(class='input-prepend')
                 div(class='btn-group')
                     select(id='search-menu', class='span12')
@@ -74,16 +62,11 @@ block content
                 input(name='searchbox', type='text', class='input-xxlarge', placeholder='Browse for')
                 a(href='#', id='find-products' class='btn btn-primary' type='button') go
 
-            p To view More Sample, click 
-                a(href='/sample-video')  here
-            
-            br
+//            p To view More Sample, click 
+  //              a(href='/sample-video')  here
+
             div(id='results')
             div(id='product-capsule')            
-
-          //  p To view More Sample, click  
-            //    a(href='/sample-video') here
-            
             
 script(src='/js/browse.js')
 

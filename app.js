@@ -30,6 +30,7 @@ var app = express();
 
 /*Define environment calls*/
 
+
 app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'web-client', 'views'));
 app.set('view engine', 'jade');
@@ -45,7 +46,6 @@ app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.session({ secret: 'secret' }));
-
 
 //using facebook auth
 passport.use(new FacebookStrategy({

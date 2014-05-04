@@ -19,8 +19,8 @@ var express = require('express'),
     TwitterStrategy = require('passport-twitter').Strategy;
 
 //facebook id info
-var FACEBOOK_APP_ID = '1387349068217839';
-var FACEBOOK_APP_SECRET = 'ae9c16addd0534e896829f2131711d36';
+var FACEBOOK_APP_ID = '673874075999542';
+var FACEBOOK_APP_SECRET = 'ffbc5a6d95128ca46225dbcd0d7f4c9b';
 
 //twitter id info
 var TWITTER_APP_ID = 'GkFOZ0bTBvC80SAAvyzj1AqpE';

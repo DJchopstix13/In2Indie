@@ -20,11 +20,11 @@ var express = require('express'),
 
 //facebook id info
 var FACEBOOK_APP_ID = '1387349068217839';
-var FACEBOOK_APP_SECRET = 'e35105db2e128b6c1f2a4251437b9c0a';
+var FACEBOOK_APP_SECRET = 'ae9c16addd0534e896829f2131711d36';
 
 //twitter id info
-var TWITTER_APP_ID = 'eLCes0UeLovgibNG4tC8u8Ssh';
-var TWITTER_APP_SECRET = 'WbaluImEmIpE2yCiF4XO1Y1ksMTJF7Di6N0BecrfVNO0pr22aQ';
+var TWITTER_APP_ID = 'GkFOZ0bTBvC80SAAvyzj1AqpE';
+var TWITTER_APP_SECRET = 'JbuZsUM9w9uJOtaTB1SQoElnjEKOFsNwysAoQQBSKkN1U71w9s';
 
 var app = express();
 
@@ -51,7 +51,7 @@ app.use(express.session({ secret: 'secret' }));
 passport.use(new FacebookStrategy({
   clientID: FACEBOOK_APP_ID,
   clientSecret: FACEBOOK_APP_SECRET,
-  callbackURL: 'http://98.158.149.241/auth/facebook/callback'
+  callbackURL: 'http://in2indie.herokuapp.com/auth/facebook/callback'
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function() {
     done(null, profile);
@@ -61,7 +61,7 @@ passport.use(new FacebookStrategy({
 passport.use(new TwitterStrategy({
   consumerKey: TWITTER_APP_ID,
   consumerSecret: TWITTER_APP_SECRET,
-  callbackURL: 'http://98.158.149.241/auth/twitter/callback'
+  callbackURL: 'http://in2indie.herokuapp.com/auth/twitter/callback'
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function() {
     done(null, profile);

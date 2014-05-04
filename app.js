@@ -28,6 +28,7 @@ var TWITTER_APP_SECRET = 'WbaluImEmIpE2yCiF4XO1Y1ksMTJF7Di6N0BecrfVNO0pr22aQ';
 var app = express();
 
 /*Define environment calls*/
+
 app.set('port', process.env.PORT || 5000);
 
 app.set('views', path.join(__dirname, 'web-client', 'views'));
@@ -44,10 +45,6 @@ app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.session({ secret: 'secret' }));
-
-//app.listen(process.env.PORT || 5000);
-
-
 
 //using facebook auth
 passport.use(new FacebookStrategy({
@@ -114,6 +111,7 @@ if ('development' == app.get('env')) {
                 console.log('Express server listening on port ' + app.get('port'));
             }
         )
+
     /*}
 })*/
 

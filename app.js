@@ -31,7 +31,7 @@ var app = express();
 app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'web-client', 'views'));
 app.set('view engine', 'jade');
-app.use(express.favicon(path.join(__dirname, 'public/img/in2indie.png')));
+app.use(express.favicon(path.join(__dirname, '.web-client/public/img/in2indie.png')));
 app.use(express.logger('dev'));
 app.use(express.cookieParser());  
 app.use(express.bodyParser());

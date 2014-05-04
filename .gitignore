@@ -1,0 +1,6 @@
+.DS_Store
+.bin/
+doc/
+html/
+node_modules/
+server-info.txt

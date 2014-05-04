@@ -29,7 +29,7 @@ var app = express();
 
 /*Define environment calls*/
 //app.set('port', process.env.PORT || 5000);
-app.listen(process.env.PORT || 5000);
+
 app.set('views', path.join(__dirname, 'web-client', 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon(path.join(__dirname, './web-client/public/img/favicon.png')));
@@ -102,7 +102,7 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 };
 
-
+app.listen(process.env.PORT || 5000);
 //Error handling for server side
 /*db.sequelize.sync().complete(function (err) {
     if (err) {

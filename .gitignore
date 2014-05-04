@@ -1,0 +1,7 @@
+node_modules/
+.DS_store
+npm-debug.log
+web-client/output
+.bin/
+server-info.txt
+html/

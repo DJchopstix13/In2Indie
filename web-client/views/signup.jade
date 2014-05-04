@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/login.styl')
+    div(class='row-fluid')
+        div(class='span12 hero-unit', id ='login')
+            h1(class="text-center") Sign Up for In2Indie
+            hr
+            center(id='login-content')
+                form(class='form-vertical')
+                input(type='text', id='full-name', placeholder='Full Name') 
+                br
+                input(type='text', id='inputEmail', placeholder='Email')
+                br
+                input(type='password', id='inputPassword', placeholder='Password')
+                br
+                input(type='password', id='inputPassword', placeholder='Confirm Password')
+                br
+                select
+                    option Select Account Type
+                    option Indie Uploader
+                    option The Community
+                br
+                button(type='submit', class='btn btn-primary', id='signup') Sign Up
+                    
+ 

@@ -28,7 +28,8 @@ var TWITTER_APP_SECRET = 'WbaluImEmIpE2yCiF4XO1Y1ksMTJF7Di6N0BecrfVNO0pr22aQ';
 var app = express();
 
 /*Define environment calls*/
-app.set('port', process.env.PORT || 5000);
+//app.set('port', process.env.PORT || 5000);
+app.listen(process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'web-client', 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon(path.join(__dirname, './web-client/public/img/favicon.png')));
@@ -43,6 +44,7 @@ app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.session({ secret: 'secret' }));
+
 
 
 //using facebook auth
@@ -100,16 +102,17 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 };
 
+
 //Error handling for server side
 /*db.sequelize.sync().complete(function (err) {
     if (err) {
         throw err;
     } else {*/
-        http.createServer(app).listen(app.get('port'),
+        /*http.createServer(app).listen(app.get('port'),
                 function () {
                 console.log('Express server listening on port ' + app.get('port'));
             }
-        )
+        )*/
     /*}
 })*/
 

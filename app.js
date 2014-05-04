@@ -51,18 +51,17 @@ app.use(express.session({ secret: 'secret' }));
 passport.use(new FacebookStrategy({
   clientID: FACEBOOK_APP_ID,
   clientSecret: FACEBOOK_APP_SECRET,
-  callbackURL: 'http://in2indie.herokuapp.com/auth/facebook/callback'
+  callbackURL: 'http://98.158.149.241/auth/facebook/callback'
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function() {
     done(null, profile);
   });
 }));
 
-//using twitter auth
 passport.use(new TwitterStrategy({
   consumerKey: TWITTER_APP_ID,
   consumerSecret: TWITTER_APP_SECRET,
-  callbackURL: 'http://in2indie.herokuapp.com/auth/twitter/callback'
+  callbackURL: 'http://98.158.149.241/auth/twitter/callback'
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function() {
     done(null, profile);
@@ -126,5 +125,4 @@ pg.connect(process.env.DATABASE_URL, function (err, client, done) {
         )
     /*}
 })*/
-
 

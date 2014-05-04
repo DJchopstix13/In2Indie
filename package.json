@@ -8,7 +8,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/DJchopstix13/In2Indie.git"
-    },
+  },
   "dependencies": {
     "express": "3.4.7",
     "jade": "*",
@@ -24,5 +24,8 @@
     "passport": "*",
     "passport-facebook": "*",
     "passport-twitter": "*"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }

@@ -32,7 +32,7 @@ var app = express();
 
 app.set('views', path.join(__dirname, 'web-client', 'views'));
 app.set('view engine', 'jade');
-app.use(express.favicon(path.join(__dirname, './web-client/public/img/favicon.png')));
+app.use(express.favicon(path.join(__dirname, 'public/img/favicon.png')));
 app.use(express.logger('dev'));
 app.use(express.cookieParser());  
 app.use(express.bodyParser());

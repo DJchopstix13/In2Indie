@@ -29,8 +29,8 @@ var app = express();
 
 /*Define environment calls*/
 
-app.set('port', process.env.PORT || 5000);
 
+app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'web-client', 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon(path.join(__dirname, 'public/img/favicon.png')));
@@ -111,7 +111,6 @@ if ('development' == app.get('env')) {
                 console.log('Express server listening on port ' + app.get('port'));
             }
         )
-
     /*}
 })*/
 

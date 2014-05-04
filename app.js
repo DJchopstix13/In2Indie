@@ -14,6 +14,7 @@ var express = require('express'),
     stylus = require('stylus'), 
     passport = require('passport'), 
     flash = require('connect-flash'), 
+    pg = require('pg'),
     FacebookStrategy = require('passport-facebook').Strategy;
     TwitterStrategy = require('passport-twitter').Strategy;
 
@@ -44,8 +45,6 @@ app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.session({ secret: 'secret' }));
-
-
 
 
 //using facebook auth
@@ -102,6 +101,17 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', {
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 };
+
+//using heroku sample code for postgresql connection
+pg.connect(process.env.DATABASE_URL, function (err, client, done) {
+    client.query('SELECT * FROM your_table', function (err, result) {
+        done();
+        if (err) return console.error(err);
+        console.log(result.rows);
+    });
+});
+
+
 
 //Error handling for server side
 /*db.sequelize.sync().complete(function (err) {

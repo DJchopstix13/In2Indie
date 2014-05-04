@@ -51,7 +51,7 @@ app.use(express.session({ secret: 'secret' }));
 passport.use(new FacebookStrategy({
   clientID: FACEBOOK_APP_ID,
   clientSecret: FACEBOOK_APP_SECRET,
-  callbackURL: 'http://in2indie.herokuapp.com/auth/facebook/callback'
+  callbackURL: 'http://in2indie.herokuapp.com/auth/facebook/'
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function() {
     done(null, profile);

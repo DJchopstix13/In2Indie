@@ -23,15 +23,15 @@ var FACEBOOK_APP_ID = '673874075999542';
 var FACEBOOK_APP_SECRET = 'ffbc5a6d95128ca46225dbcd0d7f4c9b';
 
 //twitter id info
-//var TWITTER_APP_ID = 'GkFOZ0bTBvC80SAAvyzj1AqpE';
-//var TWITTER_APP_SECRET = 'JbuZsUM9w9uJOtaTB1SQoElnjEKOFsNwysAoQQBSKkN1U71w9s';
+var TWITTER_APP_ID = 'GkFOZ0bTBvC80SAAvyzj1AqpE';
+var TWITTER_APP_SECRET = 'JbuZsUM9w9uJOtaTB1SQoElnjEKOFsNwysAoQQBSKkN1U71w9s';
 
 var app = express();
 
 /*Define environment calls*/
 
 
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 80);
 app.set('views', path.join(__dirname, 'web-client', 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon(path.join(__dirname, 'public/img/favicon.png')));
@@ -61,7 +61,7 @@ passport.use(new FacebookStrategy({
 passport.use(new TwitterStrategy({
   consumerKey: TWITTER_APP_ID,
   consumerSecret: TWITTER_APP_SECRET,
-  callbackURL: 'http://in2indie.herokuapp.com/auth/twitter/callback'
+  callbackURL: 'http://98.158.149.241/auth/twitter/callback'
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function() {
     done(null, profile);
@@ -103,26 +103,26 @@ if ('development' == app.get('env')) {
 };
 
 //using heroku sample code for postgresql connection
-pg.connect(process.env.DATABASE_URL, function (err, client, done) {
+/*pg.connect(process.env.DATABASE_URL, function (err, client, done) {
     client.query('SELECT * FROM your_table', function (err, result) {
         done();
         if (err) return console.error(err);
         console.log(result.rows);
     });
-});
+});*/
 
 
 
 //Error handling for server side
-/*db.sequelize.sync().complete(function (err) {
+db.sequelize.sync().complete(function (err) {
     if (err) {
         throw err;
-    } else {*/
+    } else {
         http.createServer(app).listen(app.get('port'),
                 function () {
                 console.log('Express server listening on port ' + app.get('port'));
             }
         )
-    /*}
-})*/
+    }
+})
 

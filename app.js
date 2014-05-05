@@ -23,8 +23,8 @@ var FACEBOOK_APP_ID = '673874075999542';
 var FACEBOOK_APP_SECRET = 'ffbc5a6d95128ca46225dbcd0d7f4c9b';
 
 //twitter id info
-var TWITTER_APP_ID = 'GkFOZ0bTBvC80SAAvyzj1AqpE';
-var TWITTER_APP_SECRET = 'JbuZsUM9w9uJOtaTB1SQoElnjEKOFsNwysAoQQBSKkN1U71w9s';
+//var TWITTER_APP_ID = 'GkFOZ0bTBvC80SAAvyzj1AqpE';
+//var TWITTER_APP_SECRET = 'JbuZsUM9w9uJOtaTB1SQoElnjEKOFsNwysAoQQBSKkN1U71w9s';
 
 var app = express();
 

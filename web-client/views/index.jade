@@ -1,7 +1,13 @@
-extends layout
-
-block css
-    link(href='/stylesheets/index.styl', rel='stylesheet')
+doctype html
+html
+    head
+        title= title
+        meta(name ='viewport', content='width=device-width, initial-scale=1.0')
+        link(href="//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css", rel="stylesheet")
+        link(href='/stylesheets/style.styl', rel='stylesheet')
+        script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+        script(src='//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.js')
+        script(src="mediaelement-and-player.min.js")
 
 block pagetitle
     div(class='page-title')
@@ -9,61 +15,56 @@ block pagetitle
             img(src="/img/favicon.png", height='150', width='150')
 
 
-block content
+    body
+        div(id='wrap')
+            div(class='navbar navbar-default', id='navigation-bar')
+                div(class='navbar-inner')
+                    ul(class='nav')
+                        li: a(href='/') 
+                            img(src="/img/favicon.png", height='50', width='50')
+                                 
+            div(class='span12', id='main-content')
+                block pagetitle
+                div(id='page-content')
+                    
+                    div(class='row-fluid')
+                        center
+                            div(class='span12', id='login')
+                                left(id='login-content')
+                                    h3 Sign-in/ Sign-Up
+                                    div(class="content center-area is-center")
+                                        div(class="block")
+                                            a(href='/auth/facebook', class='pure-button ') 
+                                                img(src='http://i.stack.imgur.com/ZW4QC.png', alt='Login with Faceboook')
+                                    div(class="content center-area is-center")
+                                        div(class="block")
+                                            a(href='/auth/twitter', class='pure-button ') 
+                                                img(src='https://dev.twitter.com/sites/default/files/images_documentation/sign-in-with-twitter-gray.png', alt='Login with Twitter')
+                            
+                            br            
+                            div(class='input-prepend')
+                                div(class='btn-group')
+                                    select(id='search-menu', class='span12')
+                                        option(value='name') Name
+                                        option(value='brand') Type
+                                input(name='searchbox', type='text', class='input-xxlarge', placeholder='Browse for')
+                                div(button id="find-products" class="btn btn-mini" type="button")
+                                    p go
 
-    div(class='row-fluid')
-        center
-             
-            //div(class='span9', id='video-sample')
-            
-                //video(width='500', height='350', poster='poster.jpg', controls='controls', preload='none')
-    
-                //MP4 for Safari, IE9, iPhone, iPad, Android, and Windows Phone 7 
-                //source(type='video/mp4', src='myvideo.mp4')
+                            div(id='results')
+                            div(id='product-capsule') 
 
-                //WebM/VP8 for Firefox4, Opera, and Chrome 
-                //source(type='video/webm', src='myvideo.webm')
-          
-                //Ogg/Vorbis for older Firefox and Opera versions 
-                //source(type='video/ogg', src='myvideo.ogv')
-      
-                //Flash fallback for non-HTML5 browsers without JavaScript 
-            
-                //object(width='320', height='240', type='application/x-shockwave-flash', data='flashmediaelement.swf')
-                
-                    //param(name='movie', value='flashmediaelement.swf')
-                    //param(name='flashvars', value='controls=true&file=myvideo.mp4')
-            
-                   //Image as a last resort 
-                   //img(src='myvideo.jpg', width='320', height='240', title='No video playback capabilities')
-               
-            div(class='span12', id='login')
-                left(id='login-content')
-                    h3 Sign-in/ Sign-Up
-                    div(class="content center-area is-center")
-                        div(class="block")
-                            a(href='/auth/facebook', class='pure-button ') 
-                                img(src='http://i.stack.imgur.com/ZW4QC.png', alt='Login with Faceboook')
-                    div(class="content center-area is-center")
-                        div(class="block")
-                            a(href='/auth/twitter', class='pure-button ') 
-                                img(src='https://dev.twitter.com/sites/default/files/images_documentation/sign-in-with-twitter-gray.png', alt='Login with Twitter')
-            
-            br            
-            div(class='input-prepend')
-                div(class='btn-group')
-                    select(id='search-menu', class='span12')
-                        option(value='name') Name
-                        option(value='brand') Type
-                input(name='searchbox', type='text', class='input-xxlarge', placeholder='Browse for')
-                a(href='#', id='find-products' class='btn btn-primary' type='button') go
+                            p To view More Sample, click 
+                                a(href='/sample-video') here  
 
-            p To view More Sample, click 
-                a(href='/sample-video')  here
+        div(class='navbar navbar-fixed-bottom',id='footer-nav')
+            div(class='navbar-inner')
+                ul(class='nav pull-right', id='footer-links')
+                    li: a(href='/about') about 
+                    li: a(href='/FAQ') FAQ 
+                    li: a(href='/contact') Contact
 
-            div(id='results')
-            div(id='product-capsule')            
-            
+
 script(src='/js/browse.js')
 
 

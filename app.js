@@ -29,8 +29,6 @@ var TWITTER_APP_SECRET = 'JbuZsUM9w9uJOtaTB1SQoElnjEKOFsNwysAoQQBSKkN1U71w9s';
 var app = express();
 
 /*Define environment calls*/
-
-
 app.set('port', process.env.PORT || 80);
 app.set('views', path.join(__dirname, 'web-client', 'views'));
 app.set('view engine', 'jade');
@@ -125,4 +123,3 @@ db.sequelize.sync().complete(function (err) {
         )
     }
 })
-

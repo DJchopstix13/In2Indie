@@ -49,7 +49,7 @@ app.use(express.session({ secret: 'secret' }));
 passport.use(new FacebookStrategy({
   clientID: FACEBOOK_APP_ID,
   clientSecret: FACEBOOK_APP_SECRET,
-  callbackURL: 'http://98.158.149.241/auth/facebook/callback'
+  callbackURL: 'http://54.187.138.161/auth/facebook/callback'
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function() {
     done(null, profile);
@@ -59,7 +59,7 @@ passport.use(new FacebookStrategy({
 passport.use(new TwitterStrategy({
   consumerKey: TWITTER_APP_ID,
   consumerSecret: TWITTER_APP_SECRET,
-  callbackURL: 'http://98.158.149.241/auth/twitter/callback'
+  callbackURL: 'http://54.187.138.161/auth/twitter/callback'
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function() {
     done(null, profile);
@@ -112,14 +112,14 @@ if ('development' == app.get('env')) {
 
 
 //Error handling for server side
-db.sequelize.sync().complete(function (err) {
-    if (err) {
-        throw err;
-    } else {
+//db.sequelize.sync().complete(function (err) {
+  //  if (err) {
+    //    throw err;
+    //} else {
         http.createServer(app).listen(app.get('port'),
                 function () {
                 console.log('Express server listening on port ' + app.get('port'));
             }
         )
-    }
-})
+    //}
+//})

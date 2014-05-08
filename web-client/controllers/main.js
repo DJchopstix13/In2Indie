@@ -42,7 +42,6 @@ module.exports = function (app) {
 
     app.get('/logout', function (req, res) {
         res.render('logout', {title: 'Logout'});
-        res.redirect('/', {title: 'Welcome to In2Indie'});
     });
 
     app.get('/about', function (req, res) {

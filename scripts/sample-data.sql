@@ -7,12 +7,12 @@ INSERT INTO "Users" (username, password, user_id, user_type, name, email) VALUES
 INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ('cubior', 'games', 'cubior02983431', 9.99, true);
 INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ('In2Indie logo', 'movie', 'in2indie32342343', 0.99, true);
 INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ('Radioactive by Imagine Dragons', 'music', 'radioactive130493123', 0.99, true);
-INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ("Grand Theft Auto V", "games", "00001", 39.99, true);
-INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ("FIFA 14", "games", "00002", 29.99, true,);
-INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ("Scary Monsters and Nice Sprites by Skrillex", "music", "00011". 0.99, true);
-INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ("I Know You Want Me by Pitbull", "music", "00012", 0.50, true);
-INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ("The Shawshank Redemption", "movies", "00021", 9.99, true);
-INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ("The Dark Knight", "movies", "00022", 12.99, True);
+INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ('Grand Theft Auto V', 'games', '00001', 39.99, true);
+INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ('FIFA 14', 'games', '00002', 29.99, true);
+INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ('Scary Monsters and Nice Sprites by Skrillex', 'music', '00011', 0.99, true);
+INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ('I Know You Want Me by Pitbull', 'music', '00012', 0.50, true);
+INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ('The Shawshank Redemption', 'movies', '00021', 9.99, true);
+INSERT INTO "Products" (product_name, product_type, product_id, product_price, product_available) VALUES ('The Dark Knight', 'movies', '00022', 12.99, True);
 INSERT INTO "Inventories" (product_id, transaction_id, product_available) VALUES ('cubior02983431', 0001, true);
 INSERT INTO "Inventories" (product_id, transaction_id, product_available) VALUES ('in2indie32342343', 0002, true);
 INSERT INTO "Inventories" (product_id, transaction_id, product_available) VALUES ('radioactive130493123', 0003, true);

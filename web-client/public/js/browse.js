@@ -7,7 +7,7 @@ $(function () {
         var newContent = '';
         var searchTerm = document.getElementById('prependDropdownButton').value;
         var searchUrl = "";
-        var url = "http:98.158.149.241";
+        var url = "http://54.187.138.161";
         
 
         if (document.getElementById('search-menu').value == 'name') {

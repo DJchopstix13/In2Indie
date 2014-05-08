@@ -15,8 +15,8 @@ block content
                     h3 Sign-in to In2Indie
                         form(class='form-vertical', action='/login', method='post')
                     div
-                        label Username:
-                        input(type='text', name='username')
+                        label Email:
+                        input(type='text', name='email')
                     div
                         label Password:
                         input(type='password', name='password')
@@ -33,8 +33,7 @@ block content
                         div(class="block")
                             a(href='/auth/twitter', class='pure-button ') 
                                 img(src='https://dev.twitter.com/sites/default/files/images_documentation/sign-in-with-twitter-gray.png', alt='Login with Twitter')
-                    h5
-                    p To Sign Up for In2Indie: 
+                    h5 To Sign Up for In2Indie: 
                     a(href='/signup' class='btn btn-primary btn-large', id='signup') Sign Up              
                     br
                     br  
@@ -43,7 +42,7 @@ block content
                             select(id='search-menu', class='span12')
                                 option(value='name') Name
                                 option(value='brand') Type 
-                        input(name='searchbox', type='text', class='input-xxlarge', placeholder='Type Sample Video')
+                        input(name='searchbox', type='text', class='input-xxlarge', placeholder='Type: Sample Video and press go')
                     button(type='submit', class='btn btn-primary', id='go') 
                             a(href='/result', class='btn btn-primary') go 
   

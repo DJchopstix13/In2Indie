@@ -12,7 +12,4 @@ INSERT INTO "Inventories" (product_id, transaction_id, product_available) VALUES
 INSERT INTO "Inventories" (product_id, transaction_id, product_available) VALUES ('radioactive130493123', 0003, true);
 INSERT INTO "Transactions" (transaction_id, user_id, product_id) VALUES (0001, 'djokernole9810383', 'cubior02983431');
 INSERT INTO "Transactions" (transaction_id, user_id, product_id) VALUES (0002, 'jpiatos13131313', 'in2indie32342343');
-INSERT INTO "Transactions" (transaction_id, user_id, product_id) VALUES (0003, 'kbryant130919342', 'radioactive130493123');
-
-
- 
+INSERT INTO "Transactions" (transaction_id, user_id, product_id) VALUES (0003, 'kbryant130919342', 'radioactive130493123'); 

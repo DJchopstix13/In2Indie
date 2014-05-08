@@ -2,8 +2,9 @@ var fs = require('fs'),
     path = require('path'),
     Sequelize = require('sequelize'),
     lodash = require('lodash'),
-    sequelize = new Sequelize('postgres', 'postgres', 'postgres',
+    sequelize = new Sequelize('in2indieDB','postgres', 'Aron_Elisa810',
         {
+            host: 'in2indie-postgresql.cra1udraoqvn.us-west-2.rds.amazonaws.com',
             dialect: "postgres", 
             port:    5432,
         } 

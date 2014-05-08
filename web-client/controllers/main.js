@@ -24,8 +24,8 @@ module.exports = function (app) {
         res.render('signup', { title: 'Sign up for In2Indie'});
     });
 
-    app.get('/sample-video', function (req, res) {
-        res.render('sample-video', { title: 'View Sample-Video'});
+    app.get('/result', function (req, res) {
+        res.render('result', { title: 'Result:'});
     });
 
     app.get('/browse', function (req, res) {

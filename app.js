@@ -14,16 +14,8 @@ var express = require('express'),
     passport = require('passport'),
     flash = require('connect-flash'),
     pg = require('pg'),
-    FacebookStrategy = require('passport-facebook').Strategy;
-TwitterStrategy = require('passport-twitter').Strategy;
-
-//facebook id info
-var FACEBOOK_APP_ID = '673874075999542';
-var FACEBOOK_APP_SECRET = 'ffbc5a6d95128ca46225dbcd0d7f4c9b';
-
-//twitter id info
-var TWITTER_APP_ID = 'GkFOZ0bTBvC80SAAvyzj1AqpE';
-var TWITTER_APP_SECRET = 'JbuZsUM9w9uJOtaTB1SQoElnjEKOFsNwysAoQQBSKkN1U71w9s';
+    FacebookStrategy = require('passport-facebook').Strategy,
+    TwitterStrategy = require('passport-twitter').Strategy;
 
 var app = express();
 
@@ -45,6 +37,12 @@ app.use(passport.session());
 app.use(express.session({
     secret: 'secret'
 }));
+
+//facebook and twitter id info
+var FACEBOOK_APP_ID = '673874075999542', 
+    FACEBOOK_APP_SECRET = 'ffbc5a6d95128ca46225dbcd0d7f4c9b', 
+    TWITTER_APP_ID = 'GkFOZ0bTBvC80SAAvyzj1AqpE'
+    TWITTER_APP_SECRET = 'JbuZsUM9w9uJOtaTB1SQoElnjEKOFsNwysAoQQBSKkN1U71w9s';
 
 //using facebook auth
 passport.use(new FacebookStrategy({
